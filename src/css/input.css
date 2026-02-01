@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+
+    body {
+        @apply font-sans antialiased text-neutral-900 bg-white dark:bg-neutral-950 dark:text-neutral-50 overflow-x-hidden;
+    }
+
+    /* Typography Scale */
+    h1,
+    .h1 {
+        @apply font-display font-bold text-5xl md:text-7xl lg:text-8xl leading-[1.1] tracking-tight;
+    }
+
+    h2,
+    .h2 {
+        @apply font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight;
+    }
+
+    h3,
+    .h3 {
+        @apply font-display font-bold text-2xl md:text-3xl lg:text-4xl leading-snug;
+    }
+
+    h4,
+    .h4 {
+        @apply font-display font-bold text-xl md:text-2xl leading-snug;
+    }
+
+    h5,
+    .h5 {
+        @apply font-display font-bold text-lg md:text-xl leading-normal;
+    }
+
+    h6,
+    .h6 {
+        @apply font-display font-bold text-base md:text-lg leading-normal;
+    }
+
+    /* Custom Selection */
+    ::selection {
+        @apply bg-primary-500/30 text-primary-900 dark:text-primary-100;
+    }
+
+    /* Professional Scrollbar */
+    ::-webkit-scrollbar {
+        @apply w-1.5;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-neutral-200 dark:bg-neutral-800 rounded-full hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors;
+    }
+}
+
+@layer components {
+
+    /* Premium Surfaces */
+    .glass-card {
+        @apply bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-2xl;
+    }
+
+    .noise-overlay {
+        @apply pointer-events-none fixed inset-0 z-[9999] opacity-[0.03] mix-blend-overlay;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Buttons */
+    .btn {
+        @apply inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-2xl transition-all duration-500 active:scale-[0.96] disabled:opacity-50;
+    }
+
+    .btn-primary {
+        @apply btn bg-gradient-to-tr from-primary-600 to-primary-500 text-white shadow-premium-primary hover:shadow-premium-primary-hover hover:-translate-y-1;
+    }
+
+    .btn-accent {
+        @apply btn bg-gradient-to-tr from-accent-600 to-accent-500 text-white shadow-premium-accent hover:shadow-premium-accent-hover hover:-translate-y-1;
+    }
+
+    .btn-outline {
+        @apply btn border-2 border-neutral-200 text-neutral-900 hover:border-primary-600 hover:text-primary-600 dark:border-neutral-800 dark:text-white dark:hover:border-primary-500;
+    }
+
+    /* Decorative */
+    .glow-orb {
+        @apply absolute blur-[120px] rounded-full opacity-50 pointer-events-none;
+    }
+
+    /* Layout */
+    .container-custom {
+        @apply max-w-[1400px] mx-auto px-6 lg:px-12;
+    }
+
+    /* Scrollbar Utilities */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    /* Accordion Animation */
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .accordion-content-active {
+        animation: slideDown 0.3s ease-out forwards;
+    }
+}

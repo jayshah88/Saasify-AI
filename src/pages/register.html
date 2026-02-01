@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | Saasify AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- ThemeForest Standard: Local CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body
+    class="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50 antialiased transition-colors duration-300 font-sans ">
+
+    <div class="noise-overlay"></div>
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 bg-white dark:bg-neutral-950 relative z-10">
+        <div
+            class="max-w-md w-full space-y-8 bg-white dark:bg-neutral-900/50 backdrop-blur-xl p-8 rounded-2xl shadow-2xl border border-neutral-200 dark:border-neutral-800">
+            <div class="text-center">
+                <a href="index.html" class="inline-flex items-center gap-2 mb-6 group">
+                    <div
+                        class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-600 flex items-center justify-center text-white font-bold text-xl group-hover:scale-105 transition-transform">
+                        S</div>
+                    <span class="font-display font-bold text-xl text-neutral-900 dark:text-white">Saasify<span
+                            class="text-primary-500">.ai</span></span>
+                </a>
+                <h2 class="mt-2 text-3xl font-display font-bold text-neutral-900 dark:text-white">Create your account
+                </h2>
+                <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">Already have an account? <a
+                        href="login.html" class="font-medium text-primary-600 hover:text-primary-500">Log in</a></p>
+            </div>
+
+            <form class="mt-8 space-y-6" id="registerForm">
+                <div class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-1">First Name</label>
+                            <input type="text" required
+                                class="mt-1 block w-full px-3 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md shadow-sm placeholder-neutral-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:bg-neutral-800 dark:text-white sm:text-sm transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Last Name</label>
+                            <input type="text" required
+                                class="mt-1 block w-full px-3 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md shadow-sm placeholder-neutral-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:bg-neutral-800 dark:text-white sm:text-sm transition-colors">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Email address</label>
+                        <input type="email" required
+                            class="mt-1 block w-full px-3 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md shadow-sm placeholder-neutral-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:bg-neutral-800 dark:text-white sm:text-sm transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Password</label>
+                        <input type="password" required
+                            class="mt-1 block w-full px-3 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md shadow-sm placeholder-neutral-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:bg-neutral-800 dark:text-white sm:text-sm transition-colors">
+                    </div>
+                </div>
+
+                <div class="flex items-center">
+                    <input id="terms" type="checkbox" required class="h-4 w-4 text-primary-600 rounded">
+                    <label for="terms" class="ml-2 block text-sm text-neutral-500">I agree to the <a href="#"
+                            class="text-primary-600">Terms</a> and <a href="#" class="text-primary-600">Privacy
+                            Policy</a></label>
+                </div>
+
+                <button type="submit"
+                    class="group relative w-full flex justify-center py-2.5 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 shadow-lg shadow-primary-500/30 transition-all duration-200">
+                    Sign up
+                </button>
+            </form>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

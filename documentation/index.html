@@ -1,92 +1,81 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Documentation - Saasify AI HTML Template</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Plus Jakarta Sans', 'sans-serif'] },
-            colors: {
-              primary: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' },
-              neutral: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 800: '#1e293b', 900: '#0f172a' }
-            },
-            typography: {
-              DEFAULT: {
-                css: {
-                  maxWidth: '100ch',
-                }
-              }
-            }
-          }
-        },
-        plugins: [
-          function({ addBase, theme }) {
-            addBase({
-              'h1': { fontSize: theme('fontSize.4xl'), fontWeight: theme('fontWeight.bold'), marginBottom: theme('spacing.6'), marginTop: theme('spacing.10'), fontFamily: theme('fontFamily.display') },
-              'h2': { fontSize: theme('fontSize.2xl'), fontWeight: theme('fontWeight.bold'), marginBottom: theme('spacing.4'), marginTop: theme('spacing.8'), fontFamily: theme('fontFamily.display') },
-              'h3': { fontSize: theme('fontSize.xl'), fontWeight: theme('fontWeight.semibold'), marginBottom: theme('spacing.3'), marginTop: theme('spacing.6') },
-              'p': { marginBottom: theme('spacing.4'), lineHeight: theme('lineHeight.relaxed'), color: theme('colors.neutral.600') },
-              'ul': { listStyleType: 'disc', paddingLeft: theme('spacing.5'), marginBottom: theme('spacing.4'), color: theme('colors.neutral.600') },
-              'li': { marginBottom: theme('spacing.2') },
-              'pre': { backgroundColor: theme('colors.neutral.900'), color: theme('colors.neutral.50'), padding: theme('spacing.4'), borderRadius: theme('borderRadius.lg'), overflowX: 'auto', marginBottom: theme('spacing.6') },
-              'code': { fontFamily: theme('fontFamily.mono'), fontSize: theme('fontSize.sm') },
-              'strong': { fontWeight: theme('fontWeight.semibold'), color: theme('colors.neutral.900') },
-            })
-          }
-        ]
-      }
-    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="../dist/css/style.css" rel="stylesheet">
     <style>
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
     </style>
 </head>
+
 <body class="bg-white text-neutral-900 font-sans antialiased flex h-screen overflow-hidden">
 
     <!-- Sidebar -->
     <aside class="w-72 flex-shrink-0 border-r border-neutral-200 bg-neutral-50 h-full overflow-y-auto hidden lg:block">
         <div class="p-8">
-            <a href="#" class="block font-display font-bold text-2xl mb-2 text-neutral-900">Saasify<span class="text-primary-600">.docs</span></a>
-            <p class="text-xs text-neutral-500 mb-10">v1.0.0</p>
-            
+            <a href="#" class="block font-display font-bold text-2xl mb-2 text-neutral-900">Saasify<span
+                    class="text-primary-600">.docs</span></a>
+            <p class="text-xs text-neutral-500 mb-10">v1.1.0</p>
+
             <nav class="space-y-8">
                 <div>
                     <h5 class="font-bold text-xs uppercase tracking-wider text-neutral-400 mb-4">Start Here</h5>
                     <ul class="space-y-1 text-sm font-medium text-neutral-600">
-                        <li><a href="#introduction" class="block py-1.5 hover:text-primary-600 transition">Introduction</a></li>
-                        <li><a href="#requirements" class="block py-1.5 hover:text-primary-600 transition">Requirements</a></li>
-                        <li><a href="#folder-structure" class="block py-1.5 hover:text-primary-600 transition">Folder Structure</a></li>
+                        <li><a href="#introduction"
+                                class="block py-1.5 hover:text-primary-600 transition">Introduction</a></li>
+                        <li><a href="#requirements"
+                                class="block py-1.5 hover:text-primary-600 transition">Requirements</a></li>
+                        <li><a href="#folder-structure" class="block py-1.5 hover:text-primary-600 transition">Folder
+                                Structure</a></li>
                     </ul>
                 </div>
                 <div>
                     <h5 class="font-bold text-xs uppercase tracking-wider text-neutral-400 mb-4">Installation</h5>
                     <ul class="space-y-1 text-sm font-medium text-neutral-600">
-                        <li><a href="#quick-start" class="block py-1.5 hover:text-primary-600 transition">Quick Start (No Code)</a></li>
-                        <li><a href="#development" class="block py-1.5 hover:text-primary-600 transition">Development Build</a></li>
-                        <li><a href="#production" class="block py-1.5 hover:text-primary-600 transition">Going to Production</a></li>
+                        <li><a href="#quick-start" class="block py-1.5 hover:text-primary-600 transition">Quick Start
+                                (No Code)</a></li>
+                        <li><a href="#development" class="block py-1.5 hover:text-primary-600 transition">Development
+                                Build</a></li>
+                        <li><a href="#production" class="block py-1.5 hover:text-primary-600 transition">Going to
+                                Production</a></li>
                     </ul>
                 </div>
                 <div>
                     <h5 class="font-bold text-xs uppercase tracking-wider text-neutral-400 mb-4">Customization</h5>
                     <ul class="space-y-1 text-sm font-medium text-neutral-600">
-                        <li><a href="#colors" class="block py-1.5 hover:text-primary-600 transition">Colors & Branding</a></li>
-                        <li><a href="#typography" class="block py-1.5 hover:text-primary-600 transition">Typography</a></li>
-                        <li><a href="#dark-mode" class="block py-1.5 hover:text-primary-600 transition">Dark Mode</a></li>
-                        <li><a href="#javascript" class="block py-1.5 hover:text-primary-600 transition">JavaScript Behavior</a></li>
+                        <li><a href="#colors" class="block py-1.5 hover:text-primary-600 transition">Colors &
+                                Branding</a></li>
+                        <li><a href="#typography" class="block py-1.5 hover:text-primary-600 transition">Typography</a>
+                        </li>
+                        <li><a href="#dark-mode" class="block py-1.5 hover:text-primary-600 transition">Dark Mode</a>
+                        </li>
+                        <li><a href="#javascript" class="block py-1.5 hover:text-primary-600 transition">JavaScript
+                                Behavior</a></li>
                     </ul>
                 </div>
                 <div>
                     <h5 class="font-bold text-xs uppercase tracking-wider text-neutral-400 mb-4">Misc</h5>
                     <ul class="space-y-1 text-sm font-medium text-neutral-600">
-                        <li><a href="#browser-support" class="block py-1.5 hover:text-primary-600 transition">Browser Support</a></li>
-                        <li><a href="#credits" class="block py-1.5 hover:text-primary-600 transition">Credits & Sources</a></li>
-                        <li><a href="#changelog" class="block py-1.5 hover:text-primary-600 transition">Changelog</a></li>
+                        <li><a href="#browser-support" class="block py-1.5 hover:text-primary-600 transition">Browser
+                                Support</a></li>
+                        <li><a href="#credits" class="block py-1.5 hover:text-primary-600 transition">Credits &
+                                Sources</a></li>
+                        <li><a href="#changelog" class="block py-1.5 hover:text-primary-600 transition">Changelog</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -96,17 +85,24 @@
     <!-- Main Content -->
     <main class="flex-1 h-full overflow-y-auto scroll-smooth">
         <div class="max-w-4xl mx-auto p-8 lg:p-16">
-            
+
             <!-- Introduction -->
             <section id="introduction" class="mb-16 scroll-mt-20">
                 <span class="text-primary-600 font-semibold tracking-wide uppercase text-sm">Welcome</span>
                 <h1>Saasify AI - HTML Template</h1>
                 <p class="text-lg text-neutral-600">
-                    Thank you for purchasing Saasify AI. This template is a premium, high-performance HTML5 UI kit designed for modern SaaS startups, AI tools, and tech products. It is built with <strong>Tailwind CSS</strong> and <strong>Vanilla JavaScript</strong>, ensuring zero dependency bloat and maximum customization potential.
+                    Thank you for purchasing Saasify AI. This template is a premium, high-performance HTML5 UI kit
+                    designed for modern SaaS startups, AI tools, and tech products. It is built with <strong>Tailwind
+                        CSS v3.4</strong> and <strong>Vanilla JavaScript</strong>, ensuring zero dependency bloat and
+                    maximum
+                    customization potential. This version includes a fully optimized funnel across <strong>29+
+                        hand-crafted pages</strong>.
                 </p>
                 <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mt-6">
                     <p class="text-blue-800 font-medium m-0 text-sm">
-                        <strong>Note:</strong> This template uses the Tailwind Play CDN by default for immediate preview capabilities. For production use, we strongly recommend following the "Development Build" section to compile your CSS.
+                        <strong>Note:</strong> This template uses the Tailwind Play CDN by default for immediate preview
+                        capabilities. For production use, we strongly recommend following the "Development Build"
+                        section to compile your CSS.
                     </p>
                 </div>
             </section>
@@ -117,7 +113,7 @@
             <section id="requirements" class="mb-16 scroll-mt-20">
                 <h2>Requirements</h2>
                 <p>You can use this template with minimal requirements, or set up a full development environment.</p>
-                
+
                 <h3>Minimum Requirements</h3>
                 <ul>
                     <li>A modern text editor (VS Code, Sublime Text, etc.)</li>
@@ -136,13 +132,16 @@
             <!-- Folder Structure -->
             <section id="folder-structure" class="mb-16 scroll-mt-20">
                 <h2>Folder Structure</h2>
-                <p>The package is organized to separate source code, documentation, and build assets.</p>
+                <p>The package is organized to separate development source code, documentation, and production-ready
+                    assets.</p>
                 <pre><code>/
-├── css/                  # Directory for compiled CSS output
-├── js/
-│   └── main.js           # Core JavaScript logic (Vanilla JS)
+├── dist/                 # Production-ready files (HTML, CSS, JS, Assets)
+├── src/                  # Development source files
+│   ├── assets/           # Raw images and icons
+│   ├── css/              # Tailwind input CSS (input.css)
+│   ├── js/               # Core JavaScript (main.js)
+│   └── pages/            # Source HTML templates
 ├── documentation/        # Documentation files (You are here)
-├── *.html                # HTML Pages (index.html, pricing.html, etc.)
 ├── tailwind.config.js    # Tailwind CSS configuration file
 ├── package.json          # NPM dependencies and scripts
 └── README.txt            # Quick start text file</code></pre>
@@ -164,8 +163,9 @@
 
             <section id="development" class="mb-16 scroll-mt-20">
                 <h2>Development Build</h2>
-                <p>To customize Tailwind settings or optimize for production, you should use the included build tools.</p>
-                
+                <p>To customize Tailwind settings or optimize for production, you should use the included build tools.
+                </p>
+
                 <h3>1. Install Dependencies</h3>
                 <p>Open your terminal in the project root and run:</p>
                 <pre><code>npm install</code></pre>
@@ -181,17 +181,18 @@
 
             <section id="production" class="mb-16 scroll-mt-20">
                 <h2>Going to Production</h2>
-                <p>The default HTML files use the Tailwind CDN for easy previewing. When you are ready to launch your site, you should switch to the local CSS file for better performance.</p>
-                
+                <p>The default HTML files use the Tailwind CDN for easy previewing. When you are ready to launch your
+                    site, you should switch to the local CSS file for better performance.</p>
+
                 <h3>Step 1: Generate CSS</h3>
                 <p>Run <code>npm run build</code> to create the optimized <code>css/style.css</code> file.</p>
 
                 <h3>Step 2: Update HTML Head</h3>
                 <p>In your HTML files, remove the Tailwind CDN script and config:</p>
-                <pre><code><!-- REMOVE THIS -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config = { ... }</script></code></pre>
-                
+                <pre><code>&lt;!-- REMOVE THIS --&gt;
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+&lt;script&gt;tailwind.config = { ... }&lt;/script&gt;</code></pre>
+
                 <p>And replace it with your compiled CSS link:</p>
                 <pre><code><!-- ADD THIS -->
 <link href="css/style.css" rel="stylesheet"></code></pre>
@@ -202,8 +203,9 @@
             <!-- Customization -->
             <section id="colors" class="mb-16 scroll-mt-20">
                 <h2>Colors & Branding</h2>
-                <p>The template uses a centralized color palette defined in <code>tailwind.config.js</code>. You can easily change the primary brand color across the entire site by editing this file.</p>
-                
+                <p>The template uses a centralized color palette defined in <code>tailwind.config.js</code>. You can
+                    easily change the primary brand color across the entire site by editing this file.</p>
+
                 <pre><code>// tailwind.config.js
 module.exports = {
   theme: {
@@ -223,11 +225,13 @@ module.exports = {
 
             <section id="typography" class="mb-16 scroll-mt-20">
                 <h2>Typography</h2>
-                <p>We use Google Fonts: <strong>Inter</strong> for body text and <strong>Plus Jakarta Sans</strong> for headings.</p>
-                
+                <p>We use Google Fonts: <strong>Inter</strong> for body text and <strong>Outfit</strong> for
+                    headings.</p>
+
                 <h3>Changing Fonts</h3>
                 <ol class="list-decimal pl-5 space-y-2 text-neutral-600">
-                    <li>Go to <a href="https://fonts.google.com" target="_blank" class="text-primary-600 underline">fonts.google.com</a> and select your desired font.</li>
+                    <li>Go to <a href="https://fonts.google.com" target="_blank"
+                            class="text-primary-600 underline">fonts.google.com</a> and select your desired font.</li>
                     <li>Copy the <code>&lt;link&gt;</code> embed code.</li>
                     <li>Replace the existing font links in the <code>&lt;head&gt;</code> of your HTML files.</li>
                     <li>Update <code>tailwind.config.js</code>:</li>
@@ -242,17 +246,52 @@ module.exports = {
                 <h2>Dark Mode</h2>
                 <p>Dark mode is built-in and enabled by default using the <code>class</code> strategy in Tailwind.</p>
                 <ul>
-                    <li><strong>Toggle:</strong> The theme toggle button in the navbar calls a function in <code>js/main.js</code>.</li>
+                    <li><strong>Toggle:</strong> The theme toggle button in the navbar calls a function in
+                        <code>js/main.js</code>.
+                    </li>
                     <li><strong>Persistence:</strong> The user's preference is saved to <code>localStorage</code>.</li>
-                    <li><strong>System Preference:</strong> On first load, it checks the user's OS settings (light or dark) if no local preference is found.</li>
+                    <li><strong>System Preference:</strong> On first load, it checks the user's OS settings (light or
+                        dark) if no local preference is found.</li>
                 </ul>
-                <p>To disable dark mode entirely, remove the <code>darkMode: 'class'</code> line from <code>tailwind.config.js</code> and remove the toggle button from the HTML.</p>
+                <p>To disable dark mode entirely, remove the <code>darkMode: 'class'</code> line from
+                    <code>tailwind.config.js</code> and remove the toggle button from the HTML.
+                </p>
+            </section>
+
+            <section id="funnels" class="mb-16 scroll-mt-20">
+                <h2>Conversion & Funnels</h2>
+                <p>Version 1.1.0 introduces optimized marketing funnels to maximize user engagement and conversion
+                    rates.</p>
+                <div class="grid md:grid-cols-2 gap-4 mt-6">
+                    <div class="p-6 bg-neutral-50 rounded-xl border border-neutral-200">
+                        <h4 class="font-bold mb-2">Social Proof</h4>
+                        <p class="text-sm m-0">Standardized Testimonial grids and masonry layouts integrated into core
+                            landing pages.</p>
+                    </div>
+                    <div class="p-6 bg-neutral-50 rounded-xl border border-neutral-200">
+                        <h4 class="font-bold mb-2">Risk Reversal</h4>
+                        <p class="text-sm m-0">Consistently placed FAQ sections and Feature Comparison tables across the
+                            ecosystem.</p>
+                    </div>
+                    <div class="p-6 bg-neutral-50 rounded-xl border border-neutral-200">
+                        <h4 class="font-bold mb-2">Sticky Navigation</h4>
+                        <p class="text-sm m-0">Optimized header with glassmorphism effects and consistent active state
+                            indicators.</p>
+                    </div>
+                    <div class="p-6 bg-neutral-50 rounded-xl border border-neutral-200">
+                        <h4 class="font-bold mb-2">Final CTAs</h4>
+                        <p class="text-sm m-0">Strategically placed "Ready to Build" sections at the end of every
+                            product-focused page.</p>
+                    </div>
+                </div>
+            </section>
             </section>
 
             <section id="javascript" class="mb-16 scroll-mt-20">
                 <h2>JavaScript Behavior</h2>
-                <p>All interactive functionality is contained in <code>js/main.js</code>. It uses pure Vanilla JavaScript with <strong>no external dependencies</strong> (no jQuery, no Alpine.js, etc.).</p>
-                
+                <p>All interactive functionality is contained in <code>js/main.js</code>. It uses pure Vanilla
+                    JavaScript with <strong>no external dependencies</strong> (no jQuery, no Alpine.js, etc.).</p>
+
                 <h3>Key Functions</h3>
                 <div class="space-y-4">
                     <div class="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
@@ -265,7 +304,9 @@ module.exports = {
                     </div>
                     <div class="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
                         <strong>initPricing()</strong>
-                        <p class="text-sm mb-0">Listens for the pricing toggle switch and updates price text based on <code>data-monthly</code> and <code>data-yearly</code> attributes.</p>
+                        <p class="text-sm mb-0">Listens for the pricing toggle switch and updates price text based on
+                            <code>data-monthly</code> and <code>data-yearly</code> attributes.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -286,49 +327,82 @@ module.exports = {
 
             <section id="credits" class="mb-16 scroll-mt-20">
                 <h2>Credits & Sources</h2>
-                <p class="mb-6">We use the following open-source assets and libraries. Please ensure you adhere to their respective licenses in your final project.</p>
-                
+                <p class="mb-6">We use the following open-source assets and libraries. Please ensure you adhere to their
+                    respective licenses in your final project.</p>
+
                 <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-8">
                     <p class="text-red-800 font-bold m-0 text-sm">IMPORTANT: Image Licensing</p>
                     <p class="text-red-700 m-0 text-sm mt-1">
-                        Images shown in the live preview are for demonstration purposes only and are <strong>not included</strong> in the download package. The download files use standard placeholders (Picsum.photos) or grey blocks. We recommend using <a href="https://unsplash.com" class="underline">Unsplash</a> or <a href="https://pexels.com" class="underline">Pexels</a> for high-quality, royalty-free stock images.
+                        Images shown in the live preview are for demonstration purposes only and are <strong>not
+                            included</strong> in the download package. The download files use standard placeholders
+                        (Picsum.photos) or grey blocks. We recommend using <a href="https://unsplash.com"
+                            class="underline">Unsplash</a> or <a href="https://pexels.com" class="underline">Pexels</a>
+                        for high-quality, royalty-free stock images.
                     </p>
                 </div>
 
                 <h3>Frameworks</h3>
                 <ul>
-                    <li><a href="https://tailwindcss.com/" target="_blank" class="text-primary-600 underline">Tailwind CSS</a> (MIT License)</li>
+                    <li><a href="https://tailwindcss.com/" target="_blank" class="text-primary-600 underline">Tailwind
+                            CSS</a> (MIT License)</li>
                 </ul>
 
                 <h3>Fonts</h3>
                 <ul>
-                    <li><a href="https://fonts.google.com/specimen/Inter" target="_blank" class="text-primary-600 underline">Inter</a> (OFL)</li>
-                    <li><a href="https://fonts.google.com/specimen/Plus+Jakarta+Sans" target="_blank" class="text-primary-600 underline">Plus Jakarta Sans</a> (OFL)</li>
+                    <li><a href="https://fonts.google.com/specimen/Inter" target="_blank"
+                            class="text-primary-600 underline">Inter</a> (OFL) - Used for Body text</li>
+                    <li><a href="https://fonts.google.com/specimen/Outfit" target="_blank"
+                            class="text-primary-600 underline">Outfit</a> (OFL) - Used for Headings</li>
                 </ul>
 
                 <h3>Icons</h3>
                 <ul>
-                    <li>All icons are inline SVGs sourced from <a href="https://heroicons.com/" target="_blank" class="text-primary-600 underline">Heroicons</a> (MIT License).</li>
+                    <li>All icons are inline SVGs sourced from <a href="https://heroicons.com/" target="_blank"
+                            class="text-primary-600 underline">Heroicons</a> (MIT License).</li>
                 </ul>
 
                 <h3>Images (Demo Only)</h3>
                 <ul>
-                    <li><a href="https://picsum.photos/" target="_blank" class="text-primary-600 underline">Lorem Picsum</a> (Standard Placeholders)</li>
-                    <li><a href="https://unsplash.com/" target="_blank" class="text-primary-600 underline">Unsplash</a> (Royalty Free)</li>
+                    <li><a href="https://picsum.photos/" target="_blank" class="text-primary-600 underline">Lorem
+                            Picsum</a> (Standard Placeholders)</li>
+                    <li><a href="https://unsplash.com/" target="_blank" class="text-primary-600 underline">Unsplash</a>
+                        (Royalty Free)</li>
                 </ul>
             </section>
 
             <section id="changelog" class="mb-16 scroll-mt-20">
                 <h2>Changelog</h2>
-                
+
                 <div class="space-y-6">
                     <div>
                         <div class="flex items-center gap-3 mb-2">
-                            <span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded">v1.0.0</span>
-                            <span class="text-neutral-500 text-sm">March 20, 2025</span>
+                            <span
+                                class="px-2 py-1 bg-primary-100 text-primary-700 text-xs font-bold rounded">v1.1.0</span>
+                            <span class="text-neutral-500 text-sm">January 15, 2026</span>
+                        </div>
+                        <p class="mb-0 font-bold">Premium Quality Overhaul</p>
+                        <ul class="mt-2 text-sm text-neutral-600 space-y-1">
+                            <li><strong>Ecosystem Standardization:</strong> Unified Header, Footer, and mobile
+                                navigation across all 29+ pages.</li>
+                            <li><strong>Conversion Injection:</strong> Added Pricing, FAQ, and Testimonials to all
+                                landing page variations.</li>
+                            <li><strong>Product Polish:</strong> Integrated CTA sections into <code>product.html</code>,
+                                <code>features.html</code>, and <code>how-it-works.html</code>.
+                            </li>
+                            <li><strong>Blog Enhancement:</strong> Added breadcrumbs, related articles, and category
+                                navigation.</li>
+                            <li><strong>Visual Refinement:</strong> Optimized spacing (Use Cases), added "Request
+                                Integration" bridges, and refined glassmorphism effects.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span
+                                class="px-2 py-1 bg-neutral-100 text-neutral-700 text-xs font-bold rounded">v1.0.0</span>
+                            <span class="text-neutral-500 text-sm">October 20, 2025</span>
                         </div>
                         <p class="mb-0">Initial release of Saasify AI HTML Template.</p>
-                        <ul class="mt-2 text-sm">
+                        <ul class="mt-2 text-sm text-neutral-600">
                             <li>25+ HTML Pages</li>
                             <li>Dark Mode Support</li>
                             <li>Component Library</li>
@@ -338,10 +412,11 @@ module.exports = {
             </section>
 
             <footer class="mt-24 pt-8 border-t border-neutral-200 text-sm text-neutral-500">
-                <p>&copy; 2025 Saasify AI. All rights reserved. Created by Elite Author.</p>
+                <p>&copy; 2026 Saasify AI. All rights reserved. Created by Elite Author.</p>
             </footer>
 
         </div>
     </main>
 </body>
+
 </html>

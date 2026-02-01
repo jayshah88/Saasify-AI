@@ -1,34 +1,41 @@
-Saasify AI - Premium SaaS HTML Template
-=======================================
+Saasify AI - Premium SaaS & AI HTML Template
+Version: 1.1.0 | Last Updated: February 2026
+================================================================================
 
-Thank you for purchasing Saasify AI.
+Thank you for choosing Saasify AI! This is a premium HTML + Tailwind CSS theme
+designed for AI SaaS, start-ups, and technology products.
 
-QUICK START
------------
-1. Unzip the package.
-2. Open 'index.html' in your browser to view the template.
+--------------------------------------------------------------------------------
+1. QUICK START
+--------------------------------------------------------------------------------
+- The 'dist/' folder contains the production-ready files.
+- Simply open 'dist/index.html' in your browser to view the template.
+- Everything works out-of-the-box using the local compiled CSS and Vanilla JS.
 
-FULL DOCUMENTATION
-------------------
-We have included a comprehensive HTML documentation guide.
-Please open 'documentation/index.html' in your browser to find:
+--------------------------------------------------------------------------------
+2. FOLDER STRUCTURE
+--------------------------------------------------------------------------------
+/dist          - Production files (HTML, CSS, JS, Images)
+/src           - Development source files (Uncompiled CSS, HTML source)
+/documentation - Detailed instructions and documentation
+tailwind.config.js - Customization for colors, fonts, and dark mode
 
-1. Installation Instructions
-2. Build & Compile Guide (Tailwind CSS)
-3. Customization Guide (Colors, Fonts, Dark Mode)
-4. Javascript Logic Explanation
-5. Credits & Licenses
+--------------------------------------------------------------------------------
+3. DEVELOPMENT & CUSTOMIZATION
+--------------------------------------------------------------------------------
+To customize the theme:
+- Install dependencies: npm install
+- Start development: npm run dev
+- Build for production: npm run build
 
-CREDITS & LICENSING
--------------------
-- Framework: Tailwind CSS (MIT)
-- Fonts: Google Fonts (OFL)
-- Icons: Heroicons (MIT)
-- Images: Placeholders used. Demo images are not included.
+For full customization instructions, please refer to:
+/documentation/index.html
 
-SUPPORT
--------
-If you have any questions that are not covered in the documentation,
-please contact us via our ThemeForest profile page.
+--------------------------------------------------------------------------------
+4. SUPPORT
+--------------------------------------------------------------------------------
+For any questions or support, please contact us via the ThemeForest profile.
 
-© 2025 Saasify.ai. All rights reserved.
+================================================================================
+Designed and developed by Elite Author
+================================================================================

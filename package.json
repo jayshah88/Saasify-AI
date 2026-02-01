@@ -1,11 +1,15 @@
 {
   "name": "saasify-html-template",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Premium AI SaaS HTML Template",
   "main": "index.html",
   "scripts": {
-    "dev": "tailwindcss -i ./css/input.css -o ./css/style.css --watch",
-    "build": "tailwindcss -i ./css/input.css -o ./css/style.css --minify"
+    "dev": "tailwindcss -i ./src/css/input.css -o ./dist/css/style.css --watch",
+    "build:css": "tailwindcss -i ./src/css/input.css -o ./dist/css/style.css --minify",
+    "build:js": "powershell -Command \"Copy-Item -Path 'src/js/*.js' -Destination 'dist/js/' -Force\"",
+    "build:html": "powershell -Command \"Copy-Item -Path 'src/pages/*.html' -Destination 'dist/' -Force\"",
+    "build:assets": "powershell -Command \"New-Item -ItemType Directory -Path 'dist/assets/img' -Force; Get-ChildItem -Path 'src/assets/img' -Include *.png,*.jpg,*.svg,*.webp,*.ico -Recurse | Copy-Item -Destination 'dist/assets/img/' -Force\"",
+    "build": "npm run build:css && npm run build:js && npm run build:html && npm run build:assets"
   },
   "author": "Elite Author",
   "license": "Commercial",
