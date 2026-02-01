@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Master Component Library - Saasify AI</title>
+    <meta name="description" content="Modular component library for Saasify AI" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- ThemeForest Standard: Local CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+         ::-webkit-scrollbar { width: 8px; }
+         ::-webkit-scrollbar-track { background: transparent; }
+         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+         .dark ::-webkit-scrollbar-thumb { background: #334155; }
+    </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50 font-sans transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-neutral-950/80 backdrop-blur border-b border-neutral-200 dark:border-neutral-800">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center text-white font-bold">S</div>
+                <span class="font-bold text-xl">Saasify <span class="text-primary-600 font-normal">UI Kit</span></span>
+            </a>
+            <div class="flex items-center gap-4">
+                 <button id="theme-toggle" class="p-2 rounded-lg text-neutral-500 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800">
+                    <span class="dark:hidden">🌙</span><span class="hidden dark:block">☀️</span>
+                </button>
+                <a href="index.html" class="text-sm font-medium hover:text-primary-600">Back to App</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex pt-16 max-w-screen-2xl mx-auto min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 fixed h-full overflow-y-auto border-r border-neutral-200 dark:border-neutral-800 hidden lg:block p-6 bg-white dark:bg-neutral-950 z-40">
+            <h5 class="font-bold text-xs uppercase tracking-wider text-neutral-500 mb-4">Foundation</h5>
+            <ul class="space-y-2 mb-8 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                <li><a href="#typography" class="hover:text-primary-600 block">Typography</a></li>
+                <li><a href="#buttons" class="hover:text-primary-600 block">Buttons</a></li>
+                <li><a href="#forms" class="hover:text-primary-600 block">Form Elements</a></li>
+                <li><a href="#badges" class="hover:text-primary-600 block">Badges & Tags</a></li>
+            </ul>
+            <h5 class="font-bold text-xs uppercase tracking-wider text-neutral-500 mb-4">Layout Blocks</h5>
+            <ul class="space-y-2 mb-8 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                <li><a href="#headers" class="hover:text-primary-600 block">Headers <span class="text-xs bg-primary-100 text-primary-600 px-1.5 py-0.5 rounded ml-1">3</span></a></li>
+                <li><a href="#heroes" class="hover:text-primary-600 block">Hero Sections <span class="text-xs bg-primary-100 text-primary-600 px-1.5 py-0.5 rounded ml-1">3</span></a></li>
+                <li><a href="#footers" class="hover:text-primary-600 block">Footers <span class="text-xs bg-primary-100 text-primary-600 px-1.5 py-0.5 rounded ml-1">3</span></a></li>
+            </ul>
+            <h5 class="font-bold text-xs uppercase tracking-wider text-neutral-500 mb-4">Components</h5>
+            <ul class="space-y-2 mb-8 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                <li><a href="#alerts" class="hover:text-primary-600 block">Alerts</a></li>
+                <li><a href="#accordions" class="hover:text-primary-600 block">Accordions</a></li>
+                <li><a href="#tabs" class="hover:text-primary-600 block">Tabs</a></li>
+                <li><a href="#modals" class="hover:text-primary-600 block">Modals</a></li>
+                <li><a href="#cards" class="hover:text-primary-600 block">Cards</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 lg:ml-64 p-8 lg:p-12 space-y-24 w-full">
+            
+            <!-- Headers Section -->
+            <section id="headers" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold mb-2">Headers</h2>
+                <p class="text-neutral-500 mb-8">Responsive navigation components for different layout needs.</p>
+                
+                <div class="space-y-12">
+                    <!-- Variant 1: Standard -->
+                    <div class="border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-900">
+                        <p class="p-3 text-xs text-neutral-500 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950">Variant 1: Standard (Logo Left, Nav Center, Actions Right)</p>
+                        <div class="relative bg-white dark:bg-neutral-950 p-4">
+                            <div class="flex justify-between items-center">
+                                <div class="font-bold text-xl flex items-center gap-2"><div class="w-8 h-8 bg-primary-600 rounded-lg"></div> Saasify</div>
+                                <nav class="hidden md:flex gap-6 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                                    <a href="#" class="hover:text-primary-600">Product</a>
+                                    <a href="#" class="hover:text-primary-600">Solutions</a>
+                                    <a href="#" class="hover:text-primary-600">Pricing</a>
+                                </nav>
+                                <div class="flex gap-3">
+                                    <button class="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-primary-600">Log in</button>
+                                    <button class="px-4 py-2 bg-primary-600 text-white rounded-lg text-sm font-medium hover:bg-primary-700">Get Started</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Variant 2: Centered -->
+                    <div class="border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-900">
+                        <p class="p-3 text-xs text-neutral-500 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950">Variant 2: Centered (For Landing Pages)</p>
+                        <div class="relative bg-white dark:bg-neutral-950 p-4 flex flex-col items-center gap-4">
+                            <div class="font-bold text-2xl">Saasify</div>
+                            <nav class="flex gap-8 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                                <a href="#" class="hover:text-primary-600">Features</a>
+                                <a href="#" class="hover:text-primary-600">Testimonials</a>
+                                <a href="#" class="hover:text-primary-600">Pricing</a>
+                                <a href="#" class="hover:text-primary-600">FAQ</a>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <!-- Variant 3: Minimal -->
+                    <div class="border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-900">
+                        <p class="p-3 text-xs text-neutral-500 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950">Variant 3: Minimal (App / Dashboard)</p>
+                        <div class="relative bg-white dark:bg-neutral-950 p-4 flex justify-between items-center border-b border-neutral-100 dark:border-neutral-800">
+                            <div class="flex items-center gap-8">
+                                <div class="font-bold text-xl">Saasify</div>
+                                <div class="hidden md:flex gap-4 text-sm font-medium text-neutral-500">
+                                    <a href="#" class="text-neutral-900 dark:text-white">Overview</a>
+                                    <a href="#" class="hover:text-neutral-900 dark:hover:text-white">Activity</a>
+                                    <a href="#" class="hover:text-neutral-900 dark:hover:text-white">Settings</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-neutral-200 dark:bg-neutral-800"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hero Sections -->
+            <section id="heroes" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold mb-2">Hero Sections</h2>
+                <p class="text-neutral-500 mb-8">High-impact introductory sections.</p>
+
+                <div class="space-y-12">
+                    <!-- Style 1: SaaS Centered -->
+                    <div class="border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden relative">
+                        <p class="p-3 text-xs text-neutral-500 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950">Style 1: SaaS Centered</p>
+                        <div class="bg-white dark:bg-neutral-950 p-12 text-center relative overflow-hidden">
+                            <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+                            <div class="relative z-10">
+                                <span class="inline-block py-1 px-3 rounded-full bg-primary-50 dark:bg-primary-900/30 text-primary-600 text-xs font-semibold mb-6">v2.0 Released</span>
+                                <h1 class="text-4xl font-bold mb-6">Build faster with AI</h1>
+                                <p class="text-neutral-500 max-w-lg mx-auto mb-8">The complete toolkit for developers. Ship your next big idea in days, not months.</p>
+                                <div class="flex justify-center gap-4">
+                                    <button class="px-6 py-2.5 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 rounded-lg font-medium">Get Started</button>
+                                    <button class="px-6 py-2.5 bg-transparent border border-neutral-300 dark:border-neutral-700 rounded-lg font-medium">Documentation</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Style 2: Split with Image -->
+                    <div class="border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden">
+                        <p class="p-3 text-xs text-neutral-500 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950">Style 2: Split Layout</p>
+                        <div class="bg-neutral-50 dark:bg-neutral-900 p-12 grid md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h1 class="text-3xl font-bold mb-4">Automate your workflow</h1>
+                                <p class="text-neutral-500 mb-6">Stop doing busy work. Let our agents handle the repetitive tasks so you can focus on strategy.</p>
+                                <div class="flex gap-3">
+                                    <input type="email" placeholder="Enter email" class="px-4 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 dark:bg-neutral-950">
+                                    <button class="px-4 py-2 bg-primary-600 text-white rounded-lg">Join Waitlist</button>
+                                </div>
+                            </div>
+                            <div class="h-48 bg-white dark:bg-neutral-800 rounded-xl shadow-lg border border-neutral-200 dark:border-neutral-700 flex items-center justify-center text-neutral-300">
+                                Feature Preview Image
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footers Section -->
+            <section id="footers" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold mb-2">Footers</h2>
+                <p class="text-neutral-500 mb-8">Ending sections for your pages.</p>
+
+                <div class="space-y-12">
+                    <!-- Footer 1: Simple -->
+                    <div class="border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden">
+                        <p class="p-3 text-xs text-neutral-500 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950">Variant 1: Simple</p>
+                        <footer class="bg-white dark:bg-neutral-950 p-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                            <div class="font-bold text-xl">Saasify</div>
+                            <p class="text-sm text-neutral-500">© 2025 Saasify Inc. All rights reserved.</p>
+                            <div class="flex gap-4 text-neutral-400">
+                                <span>Tw</span><span>Lk</span><span>Gh</span>
+                            </div>
+                        </footer>
+                    </div>
+
+                    <!-- Footer 2: Newsletter -->
+                    <div class="border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden">
+                        <p class="p-3 text-xs text-neutral-500 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950">Variant 2: Newsletter Focused</p>
+                        <footer class="bg-neutral-50 dark:bg-neutral-900 p-12 text-center">
+                            <h3 class="text-xl font-bold mb-4">Subscribe to our newsletter</h3>
+                            <p class="text-neutral-500 mb-6 max-w-md mx-auto">Get the latest AI trends and product updates delivered to your inbox weekly.</p>
+                            <div class="flex justify-center gap-2 max-w-sm mx-auto mb-8">
+                                <input type="email" placeholder="you@example.com" class="flex-1 px-4 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 dark:bg-neutral-950">
+                                <button class="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700">Subscribe</button>
+                            </div>
+                            <div class="flex justify-center gap-6 text-sm text-neutral-500">
+                                <a href="#" class="hover:text-neutral-900 dark:hover:text-white">Privacy</a>
+                                <a href="#" class="hover:text-neutral-900 dark:hover:text-white">Terms</a>
+                                <a href="#" class="hover:text-neutral-900 dark:hover:text-white">Contact</a>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Typography -->
+            <section id="typography" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold mb-8 pb-4 border-b border-neutral-200 dark:border-neutral-800">Typography</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h1 class="text-5xl font-display font-bold">Display Heading 1</h1>
+                        <p class="text-sm text-neutral-500 mt-1">font-display font-bold text-5xl</p>
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-display font-bold">Display Heading 2</h2>
+                        <p class="text-sm text-neutral-500 mt-1">font-display font-bold text-4xl</p>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold">Heading 3</h3>
+                        <p class="text-sm text-neutral-500 mt-1">font-bold text-3xl</p>
+                    </div>
+                    <div>
+                        <p class="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-2xl">
+                            Body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                        </p>
+                        <p class="text-sm text-neutral-500 mt-1">text-base text-neutral-600 leading-relaxed</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Buttons -->
+            <section id="buttons" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold mb-8 pb-4 border-b border-neutral-200 dark:border-neutral-800">Buttons</h2>
+                <div class="flex flex-wrap gap-4 items-center">
+                    <button class="px-5 py-2.5 rounded-lg bg-primary-600 text-white font-medium hover:bg-primary-700 transition shadow-lg shadow-primary-500/30">Primary</button>
+                    <button class="px-5 py-2.5 rounded-lg bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-medium hover:opacity-90 transition">Secondary</button>
+                    <button class="px-5 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 font-medium hover:bg-neutral-50 dark:hover:bg-neutral-800 transition">Outline</button>
+                    <button class="px-5 py-2.5 rounded-lg text-primary-600 font-medium hover:bg-primary-50 dark:hover:bg-primary-900/20 transition">Ghost</button>
+                    <button disabled class="px-5 py-2.5 rounded-lg bg-primary-600 text-white font-medium opacity-50 cursor-not-allowed">Disabled</button>
+                </div>
+            </section>
+
+            <!-- Forms -->
+            <section id="forms" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold mb-8 pb-4 border-b border-neutral-200 dark:border-neutral-800">Form Elements</h2>
+                <div class="max-w-md space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Email Input</label>
+                        <input type="email" class="w-full px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-lg focus:ring-2 focus:ring-primary-500 outline-none dark:bg-neutral-900" placeholder="name@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Select Option</label>
+                        <select class="w-full px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-lg focus:ring-2 focus:ring-primary-500 outline-none dark:bg-neutral-900">
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" id="chk" class="w-4 h-4 text-primary-600 rounded">
+                        <label for="chk" class="text-sm">Remember me</label>
+                    </div>
+                    <!-- Toggle Switch -->
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input type="checkbox" value="" class="sr-only peer">
+                        <div class="w-11 h-6 bg-neutral-200 peer-focus:outline-none rounded-full peer dark:bg-neutral-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600 relative"></div>
+                        <span class="ml-3 text-sm font-medium text-neutral-900 dark:text-neutral-300">Toggle me</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Badges -->
+            <section id="badges" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold mb-8 pb-4 border-b border-neutral-200 dark:border-neutral-800">Badges</h2>
+                <div class="flex flex-wrap gap-4">
+                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300">Primary</span>
+                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-300">Neutral</span>
+                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Success</span>
+                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Warning</span>
+                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300">Error</span>
+                </div>
+            </section>
+
+            <!-- Alerts -->
+            <section id="alerts" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold mb-8 pb-4 border-b border-neutral-200 dark:border-neutral-800">Alerts</h2>
+                <div class="space-y-4 max-w-2xl">
+                    <div id="alert-1" class="flex p-4 mb-4 text-blue-800 rounded-lg bg-blue-50 dark:bg-neutral-800 dark:text-blue-400" role="alert">
+                        <svg class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/></svg>
+                        <div class="ml-3 text-sm font-medium">
+                            A simple info alert with an <a href="#" class="font-semibold underline hover:no-underline">example link</a>.
+                        </div>
+                        <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex h-8 w-8 dark:bg-neutral-800 dark:text-blue-400 dark:hover:bg-neutral-700" data-dismiss-target="alert-1">
+                            <span class="sr-only">Close</span>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414Z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Accordions -->
+            <section id="accordions" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold mb-8 pb-4 border-b border-neutral-200 dark:border-neutral-800">Accordion</h2>
+                <div class="max-w-xl border border-neutral-200 dark:border-neutral-800 rounded-lg overflow-hidden">
+                    <div>
+                        <button class="accordion-btn w-full flex justify-between items-center p-4 bg-neutral-50 dark:bg-neutral-900 text-left font-bold" aria-expanded="true" aria-controls="acc-1">
+                            What is included in the UI kit?
+                            <svg class="accordion-icon w-5 h-5 rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <div id="acc-1" class="p-4 bg-white dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400">
+                            It includes all the core components, layout examples, and utility pages you need to build a SaaS app.
+                        </div>
+                    </div>
+                    <div class="border-t border-neutral-200 dark:border-neutral-800">
+                        <button class="accordion-btn w-full flex justify-between items-center p-4 bg-neutral-50 dark:bg-neutral-900 text-left font-bold" aria-expanded="false" aria-controls="acc-2">
+                            Is it compatible with React?
+                            <svg class="accordion-icon w-5 h-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <div id="acc-2" class="hidden p-4 bg-white dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400">
+                            Yes, the structure is standard HTML/Tailwind, so it can easily be converted to React components.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tabs -->
+            <section id="tabs" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold mb-8 pb-4 border-b border-neutral-200 dark:border-neutral-800">Tabs</h2>
+                <div class="tabs-container">
+                    <div class="border-b border-neutral-200 dark:border-neutral-800 mb-4">
+                        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center">
+                            <li class="mr-2">
+                                <button class="inline-block p-4 border-b-2 border-primary-600 text-primary-600 rounded-t-lg active" data-tab-target="#tab-profile">Profile</button>
+                            </li>
+                            <li class="mr-2">
+                                <button class="inline-block p-4 border-b-2 border-transparent text-neutral-500 hover:text-neutral-600 hover:border-neutral-300 rounded-t-lg" data-tab-target="#tab-dashboard">Dashboard</button>
+                            </li>
+                            <li class="mr-2">
+                                <button class="inline-block p-4 border-b-2 border-transparent text-neutral-500 hover:text-neutral-600 hover:border-neutral-300 rounded-t-lg" data-tab-target="#tab-settings">Settings</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="tab-profile" class="tab-content">
+                        <p class="text-neutral-500">This is the <strong class="text-neutral-900 dark:text-white">Profile</strong> tab content. Clean and simple.</p>
+                    </div>
+                    <div id="tab-dashboard" class="tab-content hidden">
+                        <p class="text-neutral-500">This is the <strong class="text-neutral-900 dark:text-white">Dashboard</strong> tab content. Graphs go here.</p>
+                    </div>
+                    <div id="tab-settings" class="tab-content hidden">
+                        <p class="text-neutral-500">This is the <strong class="text-neutral-900 dark:text-white">Settings</strong> tab content. Configuration options.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modals -->
+            <section id="modals" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold mb-8 pb-4 border-b border-neutral-200 dark:border-neutral-800">Modals</h2>
+                <button data-modal-target="default-modal" class="px-5 py-2.5 bg-primary-600 text-white rounded-lg hover:bg-primary-700">Open Modal</button>
+
+                <!-- Modal DOM -->
+                <div id="default-modal" class="modal fixed inset-0 z-50 hidden overflow-y-auto overflow-x-hidden flex justify-center items-center bg-black/50 backdrop-blur-sm">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <div class="relative bg-white rounded-2xl shadow-2xl dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+                            <!-- Header -->
+                            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-neutral-700">
+                                <h3 class="text-xl font-semibold text-neutral-900 dark:text-white">
+                                    Terms of Service
+                                </h3>
+                                <button type="button" class="text-neutral-400 bg-transparent hover:bg-neutral-200 hover:text-neutral-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-neutral-600 dark:hover:text-white" data-modal-close>
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/></svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Body -->
+                            <div class="p-4 md:p-5 space-y-4">
+                                <p class="text-base leading-relaxed text-neutral-500 dark:text-neutral-400">
+                                    With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
+                                </p>
+                            </div>
+                            <!-- Footer -->
+                            <div class="flex items-center p-4 md:p-5 border-t border-neutral-200 rounded-b dark:border-neutral-700">
+                                <button data-modal-close type="button" class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">I Accept</button>
+                                <button data-modal-close type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-neutral-900 focus:outline-none bg-white rounded-lg border border-neutral-200 hover:bg-neutral-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-neutral-100 dark:focus:ring-neutral-700 dark:bg-neutral-800 dark:text-neutral-400 dark:border-neutral-600 dark:hover:text-white dark:hover:bg-neutral-700">Decline</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <!-- Cards -->
+             <section id="cards" class="scroll-mt-24 pb-24">
+                <h2 class="text-3xl font-bold mb-8 pb-4 border-b border-neutral-200 dark:border-neutral-800">Cards</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Feature Card -->
+                    <div class="bg-white dark:bg-neutral-900 p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-sm hover:shadow-xl transition-shadow">
+                        <div class="w-12 h-12 rounded-lg bg-primary-100 text-primary-600 flex items-center justify-center mb-6">★</div>
+                        <h3 class="text-xl font-bold mb-3">Feature Card</h3>
+                        <p class="text-neutral-500">Standard card used for features, benefits, or grid items. Simple and clean.</p>
+                    </div>
+                    <!-- Pricing Card -->
+                    <div class="bg-white dark:bg-neutral-900 p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
+                        <h3 class="text-lg font-bold mb-2">Pro Plan</h3>
+                        <div class="text-3xl font-bold mb-4">$49<span class="text-sm font-normal text-neutral-500">/mo</span></div>
+                        <ul class="space-y-2 text-sm text-neutral-600 dark:text-neutral-400 mb-6">
+                            <li>✓ Unlimited Access</li>
+                            <li>✓ Priority Support</li>
+                        </ul>
+                        <button class="w-full py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700">Choose Plan</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Overview - Saasify AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- ThemeForest Standard: Local CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white font-sans transition-colors duration-300">
+    <nav class="fixed w-full z-50 bg-white/80 dark:bg-neutral-950/80 backdrop-blur border-b border-neutral-200 dark:border-neutral-800">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+            <a href="index.html" class="font-display font-bold text-xl">Saasify.ai</a>
+            <div class="flex gap-4">
+                <a href="index.html" class="text-sm font-medium text-neutral-500 hover:text-primary-600">Back</a>
+                <a href="pricing.html" class="text-sm font-medium bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32">
+        <!-- Hero -->
+        <section class="max-w-7xl mx-auto px-4 text-center mb-24">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 text-sm font-semibold mb-6">
+                Platform Overview
+            </div>
+            <h1 class="text-5xl md:text-7xl font-display font-bold mb-8">The AI Operating System</h1>
+            <p class="text-xl text-neutral-500 max-w-2xl mx-auto mb-12">One unified platform to build, deploy, and scale intelligent applications.</p>
+            <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-2xl overflow-hidden bg-neutral-900">
+                <img src="https://picsum.photos/1200/800" class="w-full opacity-90" alt="Platform Interface">
+            </div>
+        </section>
+
+        <!-- The Engine -->
+        <section class="py-24 bg-neutral-50 dark:bg-neutral-900/50 border-y border-neutral-100 dark:border-neutral-800">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6">The Inference Engine</h2>
+                        <p class="text-lg text-neutral-500 mb-6">Our proprietary inference engine routes queries to the most optimal model based on cost, latency, and quality requirements.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 flex items-center justify-center text-sm font-bold">1</div>
+                                <div>
+                                    <h4 class="font-bold">Smart Routing</h4>
+                                    <p class="text-sm text-neutral-500">Automatically switch between GPT-4, Claude 3, and Gemini.</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 flex items-center justify-center text-sm font-bold">2</div>
+                                <div>
+                                    <h4 class="font-bold">Unified API</h4>
+                                    <p class="text-sm text-neutral-500">One standardized API for all LLM providers.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white dark:bg-neutral-900 p-8 rounded-2xl shadow-lg border border-neutral-100 dark:border-neutral-800">
+                        <div class="space-y-4 font-mono text-sm">
+                            <div class="flex justify-between border-b border-neutral-100 dark:border-neutral-800 pb-2">
+                                <span class="text-neutral-500">Query</span>
+                                <span class="text-neutral-900 dark:text-white">"Analyze Q3 Revenue"</span>
+                            </div>
+                            <div class="flex justify-between border-b border-neutral-100 dark:border-neutral-800 pb-2">
+                                <span class="text-neutral-500">Route</span>
+                                <span class="text-green-500">Gemini 1.5 Pro</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-neutral-500">Latency</span>
+                                <span class="text-blue-500">142ms</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Interface -->
+        <section class="py-24">
+             <div class="max-w-7xl mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                     <div class="order-2 md:order-1 bg-white dark:bg-neutral-900 p-2 rounded-2xl shadow-lg border border-neutral-100 dark:border-neutral-800">
+                        <img src="https://picsum.photos/600/400" class="rounded-xl w-full" alt="UI Kit">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h2 class="text-3xl font-bold mb-6">The Interface Kit</h2>
+                        <p class="text-lg text-neutral-500 mb-6">Don't waste time building UI from scratch. We provide a complete library of React components optimized for AI chat interfaces.</p>
+                        <p class="text-neutral-500">Includes Chat Bubbles, Code Highlighting, Streaming Text effects, and more.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How It Works - Saasify AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- ThemeForest Standard: Local CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white font-sans transition-colors duration-300">
+    <nav class="fixed w-full z-50 bg-white/80 dark:bg-neutral-950/80 backdrop-blur border-b border-neutral-200 dark:border-neutral-800">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+            <a href="index.html" class="font-display font-bold text-xl">Saasify.ai</a>
+            <div class="flex gap-4">
+                <a href="index.html" class="text-sm font-medium text-neutral-500 hover:text-primary-600">Back</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24">
+        <div class="text-center max-w-3xl mx-auto px-4 mb-24">
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">From Idea to Production</h1>
+            <p class="text-xl text-neutral-500">Our platform abstracts the complexity of AI infrastructure. You focus on the prompt, we handle the rest.</p>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 relative">
+            <!-- Connecting Line (Desktop) -->
+            <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-neutral-200 dark:bg-neutral-800 -translate-x-1/2 z-0"></div>
+
+            <!-- Step 1 -->
+            <div class="relative z-10 flex flex-col md:flex-row items-center gap-12 mb-24">
+                <div class="flex-1 text-center md:text-right order-2 md:order-1">
+                    <h3 class="text-2xl font-bold mb-3">1. Connect Data Sources</h3>
+                    <p class="text-neutral-500">Securely link your database, documents, or API endpoints. We automatically vectorise and index your data for retrieval.</p>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-xl shadow-xl shadow-primary-500/30 order-1 md:order-2">1</div>
+                <div class="flex-1 order-3">
+                    <div class="bg-neutral-100 dark:bg-neutral-900 p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800">
+                        <div class="flex items-center gap-3 mb-3 p-3 bg-white dark:bg-neutral-950 rounded border border-neutral-200 dark:border-neutral-800">
+                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                            <span class="text-sm font-medium">PostgreSQL Database</span>
+                            <span class="ml-auto text-xs text-neutral-400">Connected</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-white dark:bg-neutral-950 rounded border border-neutral-200 dark:border-neutral-800 opacity-60">
+                            <div class="w-2 h-2 rounded-full bg-neutral-300"></div>
+                            <span class="text-sm font-medium">Notion Workspace</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="relative z-10 flex flex-col md:flex-row items-center gap-12 mb-24">
+                <div class="flex-1 order-3 md:order-1">
+                    <div class="bg-neutral-100 dark:bg-neutral-900 p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 font-mono text-sm text-neutral-600 dark:text-neutral-300">
+                        <p class="mb-2"><span class="text-purple-500">System:</span> You are a helpful assistant.</p>
+                        <p class="mb-2"><span class="text-blue-500">User:</span> Summarize this data.</p>
+                        <div class="h-2 w-24 bg-neutral-300 dark:bg-neutral-700 animate-pulse rounded"></div>
+                    </div>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-xl shadow-xl shadow-primary-500/30 order-1 md:order-2">2</div>
+                <div class="flex-1 text-center md:text-left order-2 md:order-3">
+                    <h3 class="text-2xl font-bold mb-3">2. Configure Logic</h3>
+                    <p class="text-neutral-500">Use our visual prompt builder to define how the AI should behave. Chain multiple models together for complex workflows.</p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="relative z-10 flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-1 text-center md:text-right order-2 md:order-1">
+                    <h3 class="text-2xl font-bold mb-3">3. Deploy & Scale</h3>
+                    <p class="text-neutral-500">Push to production with a single click. Our global edge network ensures low latency for users worldwide.</p>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-xl shadow-xl shadow-primary-500/30 order-1 md:order-2">3</div>
+                <div class="flex-1 order-3">
+                     <div class="bg-neutral-100 dark:bg-neutral-900 p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 text-center">
+                        <div class="text-4xl font-bold text-green-500 mb-2">99.99%</div>
+                        <p class="text-sm text-neutral-500 uppercase tracking-wide">Uptime</p>
+                     </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>

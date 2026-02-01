@@ -1,0 +1,122 @@
+ITEM TITLE
+==========
+Saasify AI | Modern SaaS & Tech Startup HTML Template + Tailwind CSS
+
+
+SEO DESCRIPTION (METADATA)
+==========================
+Launch your AI startup with Saasify. A premium, high-performance HTML template built with Tailwind CSS v3. Features Dark Mode, 25+ pages, and zero dependencies (No jQuery). Perfect for SaaS, App Landings, and Tech Agencies.
+
+
+PRODUCT DESCRIPTION
+===================
+
+**Saasify AI** is a cutting-edge HTML5 template designed specifically for the next generation of artificial intelligence startups, SaaS platforms, and modern tech companies.
+
+Built with a developer-first approach, Saasify utilizes the latest **Tailwind CSS v3** framework and **Vanilla JavaScript** (ES6+). We have completely removed jQuery and other heavy dependencies to ensure your website achieves a 100/100 Lighthouse performance score.
+
+Whether you are launching an LLM interface, a dev-tool, or an enterprise software solution, Saasify provides the professional aesthetic and solid code foundation you need to scale.
+
+### **Core Features**
+
+*   **Tailwind CSS v3.4:** Built with the utility-first framework you know and love.
+*   **Dark Mode Support:** Fully integrated dark mode with system preference detection and localStorage persistence.
+*   **Zero Dependencies:** No jQuery, no Bootstrap, no Alpine.js. Just pure, clean, readable HTML & JS.
+*   **25+ Premium Pages:** A complete suite of pages to launch a full product marketing site.
+*   **Developer Friendly:** Includes `package.json`, PostCSS, and Prettier configuration for a modern workflow.
+*   **W3C Validated:** Clean, semantic markup that is SEO optimized out of the box.
+*   **Glassmorphism Effects:** Modern UI trends implemented with native CSS backdrop-filters.
+*   **Responsive Design:** Mobile-first architecture that looks perfect on all devices.
+
+---
+
+### **Pages Included**
+
+**Landings**
+*   Home v1 (SaaS / AI Focus)
+*   Home v2 (Product / Dashboard Focus)
+*   Home v3 (Enterprise / Corporate Focus)
+
+**Company**
+*   About Us
+*   Contact
+*   Careers / Jobs
+*   Pricing (with Monthly/Yearly toggle)
+*   Our Team
+
+**Product & Resources**
+*   Features / Tour
+*   Use Cases / Solutions
+*   Integrations
+*   Changelog
+*   Roadmap
+*   Testimonials
+*   How it Works
+
+**Blog**
+*   Blog Listing (Grid)
+*   Blog Single (Article)
+
+**Authentication**
+*   Login
+*   Register
+*   Forgot Password
+*   Verify Email
+
+**Utility**
+*   404 Not Found
+*   Maintenance Mode
+*   Coming Soon / Launching
+*   Legal (Privacy Policy)
+*   Legal (Terms of Service)
+*   Security / Trust
+
+**System**
+*   Component Library (UI Kit)
+
+---
+
+### **Technical Specifications**
+
+*   **Framework:** Tailwind CSS v3.x
+*   **JS Library:** Vanilla JS (ES6)
+*   **Fonts:** Inter & Plus Jakarta Sans (Google Fonts)
+*   **Icons:** Heroicons (SVG)
+*   **Build Tools:** NPM, PostCSS (Optional)
+
+---
+
+### **Browser Support**
+
+*   Chrome (Latest)
+*   Firefox (Latest)
+*   Safari (Latest)
+*   Edge (Latest)
+*   Opera (Latest)
+
+---
+
+### **Sources & Credits**
+
+*   **Images:** Unsplash, Pexels, Lorem Picsum.
+*   **Icons:** Heroicons.
+*   **Fonts:** Google Fonts.
+
+**IMPORTANT NOTE:** The images used in the live preview are for demonstration purposes only and are **not included** in the download package. The download files contain placeholders.
+
+---
+
+### **Support & Updates**
+
+We are committed to providing high-quality support. If you have any questions about the template, please feel free to reach out via our ThemeForest profile page. We aim to respond to all queries within 24 hours (Monday - Friday).
+
+**Updates:** We regularly update our templates to ensure compatibility with the latest browser versions and Tailwind CSS updates.
+
+---
+
+### **Changelog**
+
+**Version 1.0.0** - Initial Release
+*   Initial release of Saasify AI Template
+*   Added 25+ HTML pages
+*   Added Dark Mode support
