@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: ["./src/**/*.{html,js}", "./index.html"],
   darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Geist', 'Inter', 'sans-serif'],
         display: ['Outfit', 'sans-serif'],
       },
       colors: {
@@ -16,16 +16,22 @@ module.exports = {
           300: '#a5b4fc',
           400: '#818cf8',
           500: '#6366f1',
-          600: '#4f46e5',
+          600: '#4F46E5', // Target Brand Primary
           700: '#4338ca',
           800: '#3730a3',
           900: '#312e81',
           950: '#1e1b4b',
         },
+        slate: {
+          900: '#0F172A', // Target Surface
+          950: '#020617', // Target Background
+        },
         accent: {
           50: '#faf5ff',
           500: '#d946ef',
           600: '#c026d3',
+          indigo: '#818CF8', // Indigo 400
+          emerald: '#10B981', // Emerald 500 (Success)
         },
         neutral: {
           50: '#f9fafb',
@@ -38,12 +44,12 @@ module.exports = {
           700: '#374151',
           800: '#1f2937',
           900: '#111827',
-          950: '#030712', // Obsidian
+          950: '#030712',
         }
       },
       backgroundImage: {
         'dots-pattern': "radial-gradient(circle, #80808020 1px, transparent 1px)",
-        'mesh-gradient': "radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0, transparent 50%), radial-gradient(at 100% 0%, rgba(217, 70, 239, 0.15) 0, transparent 50%)",
+        'mesh-gradient': "radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0, transparent 50%), radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.1) 0, transparent 50%)",
       },
       animation: {
         'fade-in-up': 'fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
@@ -62,8 +68,8 @@ module.exports = {
         }
       },
       boxShadow: {
-        'glow-primary': '0 0 20px rgba(99, 102, 241, 0.3)',
-        'glow-accent': '0 0 20px rgba(217, 70, 239, 0.3)',
+        'glow-primary': '0 0 20px rgba(79, 70, 229, 0.3)',
+        'glow-accent': '0 0 20px rgba(129, 140, 248, 0.3)',
         'premium-primary': '0 10px 20px -5px rgba(79, 114, 229, 0.3)',
         'premium-accent': '0 10px 20px -5px rgba(217, 70, 239, 0.3)',
         'premium-primary-hover': '0 20px 30px -10px rgba(79, 114, 229, 0.4)',

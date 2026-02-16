@@ -10,17 +10,19 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <!-- ThemeForest Standard: Local CSS -->
-    <link href="css/style.css" rel="stylesheet">
+    <script type="module" src='../main.js'></script>
+  <link rel='stylesheet' href='../compiled-style.css'>
+  <script>(function(){const t=localStorage.getItem('saasify-theme')||'light';if(t==='dark')document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark')})();</script>
 </head>
 
 <body
-    class="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-white flex flex-col items-center justify-center min-h-screen px-4 font-sans text-center selection:bg-primary-500/30">
+    class="bg-white dark:bg-slate-950 text-slate-900 dark:text-white flex flex-col items-center justify-center min-h-screen px-4 font-sans text-center selection:bg-indigo-500/30">
 
     <div class="noise-overlay"></div>
 
     <div class="max-w-md w-full animate-fade-in-up">
         <div
-            class="w-20 h-20 rounded-2xl bg-primary-500/10 text-primary-600 dark:text-primary-500 flex items-center justify-center mb-8 mx-auto animate-pulse shadow-xl shadow-primary-500/5">
+            class="w-20 h-20 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-500 flex items-center justify-center mb-8 mx-auto animate-pulse shadow-xl shadow-indigo-500/5">
             <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -29,16 +31,28 @@
             </svg>
         </div>
         <h1 class="text-4xl font-display font-black mb-4 tracking-tight">System Upgrade</h1>
-        <p class="text-neutral-500 dark:text-neutral-400 text-lg mb-8 text-balance">We're fine-tuning the platform to
+        <p class="text-slate-500 dark:text-slate-400 dark:text-slate-400 dark:text-slate-400 text-lg mb-8 text-balance">We're fine-tuning the platform to
             bring
             you an even better AI experience. We'll be back online briefly.</p>
         <div
-            class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-sm">
-            <span class="w-2 h-2 rounded-full bg-primary-500 animate-ping"></span>
-            <span class="text-neutral-600 dark:text-neutral-400 font-medium font-display">Back in <span
-                    class="text-neutral-900 dark:text-white font-bold">~45 minutes</span></span>
+            class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm">
+            <span class="w-2 h-2 rounded-full bg-indigo-500 animate-ping"></span>
+            <span class="text-slate-600 dark:text-slate-400 font-medium font-display">Back in <span
+                    class="text-slate-900 dark:text-white font-bold">~45 minutes</span></span>
         </div>
     </div>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

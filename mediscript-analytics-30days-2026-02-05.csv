@@ -1,0 +1,27 @@
+Mediscript Analytics Report
+Date Range: Last 30 days
+Generated: 05/02/2026, 13:35:40
+
+KEY METRICS
+Metric,Value
+Total Prescriptions,150
+Total Doctors,50
+Total Patients,100
+Total Hospitals,0
+
+PRESCRIPTION TRENDS
+Date,Count
+2026-01-30T18:30:00.000Z,150
+
+DIAGNOSIS DISTRIBUTION
+Diagnosis,Count
+"Patient diagnosed with mild dermatologist related issues.",24
+"Patient diagnosed with mild cardiologist related issues.",23
+"Patient diagnosed with mild oncologist related issues.",21
+"Patient diagnosed with mild gastroenterologist related issues.",19
+"Patient diagnosed with mild gynecologist related issues.",16
+"Patient diagnosed with mild ent specialist related issues.",15
+"Patient diagnosed with mild neurologist related issues.",14
+"Patient diagnosed with mild pediatrician related issues.",11
+"Patient diagnosed with mild general physician related issues.",4
+"Patient diagnosed with mild orthopedic surgeon related issues.",3

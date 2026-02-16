@@ -1,0 +1,29 @@
+#sidebar {
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#sidebar.collapsed {
+    width: 4rem; /* 64px */
+}
+
+#sidebar.collapsed .sidebar-text {
+    opacity: 0;
+    width: 0;
+    pointer-events: none;
+}
+
+#sidebar.collapsed #sidebar-toggle svg {
+    transform: rotate(180deg);
+}
+
+/* Mobile Slide-over */
+@media (max-width: 768px) {
+    #sidebar {
+        transform: translateX(-100%);
+        width: 16rem; /* Full width on mobile when open */
+    }
+    
+    #sidebar.mobile-open {
+        transform: translateX(0);
+    }
+}

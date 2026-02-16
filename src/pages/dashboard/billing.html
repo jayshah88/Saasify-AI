@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing | Saasify AI</title>
+    <script type="module" src='../../main.js'></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='../../src/compiled-style.css'>
+    <script>(function(){const t=localStorage.getItem('saasify-theme')||'light';if(t==='dark')document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark')})();</script>
+</head>
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-white font-sans antialiased overflow-hidden">
+    <div class="noise-overlay"></div>
+    <div id="sidebar-container"></div>
+
+    <main class="ml-0 md:ml-64 transition-all duration-300 h-screen overflow-y-auto p-4 md:p-8">
+        <header class="mb-8">
+            <h1 class="font-display text-3xl font-bold">Billing & Usage</h1>
+            <p class="text-slate-500 dark:text-slate-400 text-sm">Manage your subscription and monitor credit usage.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bento-card p-8 bg-gradient-to-br from-indigo-600 to-purple-700 border-none text-white">
+                <div class="flex justify-between items-start mb-12">
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-widest text-indigo-100 mb-1">Current Plan</p>
+                        <h2 class="text-3xl font-bold">Pro Plan</h2>
+                    </div>
+                    <span class="px-3 py-1 bg-white/20 rounded-full text-[10px] font-bold uppercase">Active</span>
+                </div>
+                <div class="flex items-end justify-between">
+                    <div>
+                        <p class="text-4xl font-bold">$49<span class="text-lg font-normal text-indigo-100">/mo</span></p>
+                        <p class="text-xs text-indigo-100 mt-1">Next renewal on March 20, 2026</p>
+                    </div>
+                    <button class="px-6 py-2 bg-white text-indigo-600 rounded-lg font-bold text-sm">Upgrade</button>
+                </div>
+            </div>
+
+            <div class="bento-card p-8">
+                <h3 class="text-lg font-bold mb-6">Usage Limits</h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between text-xs mb-2">
+                            <span class="text-slate-500 font-bold uppercase">AI Tokens</span>
+                            <span class="font-bold">84,200 / 100,000</span>
+                        </div>
+                        <div class="w-full bg-slate-100 dark:bg-white/5 h-2 rounded-full overflow-hidden">
+                            <div class="bg-indigo-500 h-full w-[84%]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs mb-2">
+                            <span class="text-slate-500 font-bold uppercase">Team Seats</span>
+                            <span class="font-bold">3 / 5</span>
+                        </div>
+                        <div class="w-full bg-slate-100 dark:bg-white/5 h-2 rounded-full overflow-hidden">
+                            <div class="bg-purple-500 h-full w-[60%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="omni-bar"></div>
+</body>
+</html>

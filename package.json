@@ -1,21 +1,26 @@
 {
-  "name": "saasify-html-template",
-  "version": "1.1.0",
-  "description": "Premium AI SaaS HTML Template",
+  "name": "saasify-ai",
+  "version": "1.2.0",
+  "description": "Premium AI SaaS HTML Template - Bento Motion Hybrid",
   "main": "index.html",
+  "type": "module",
   "scripts": {
-    "dev": "tailwindcss -i ./src/css/input.css -o ./dist/css/style.css --watch",
-    "build:css": "tailwindcss -i ./src/css/input.css -o ./dist/css/style.css --minify",
-    "build:js": "powershell -Command \"Copy-Item -Path 'src/js/*.js' -Destination 'dist/js/' -Force\"",
-    "build:html": "powershell -Command \"Copy-Item -Path 'src/pages/*.html' -Destination 'dist/' -Force\"",
-    "build:assets": "powershell -Command \"New-Item -ItemType Directory -Path 'dist/assets/img' -Force; Get-ChildItem -Path 'src/assets/img' -Include *.png,*.jpg,*.svg,*.webp,*.ico -Recurse | Copy-Item -Destination 'dist/assets/img/' -Force\"",
-    "build": "npm run build:css && npm run build:js && npm run build:html && npm run build:assets"
+    "dev": "vite",
+    "build": "vite build && npm run copy-components",
+    "copy-components": "node scripts/copy-components.js",
+    "preview": "vite preview",
+    "test": "node tests/init-check.cjs && node tests/event-bus.test.js && node tests/mock-ai.test.js"
   },
   "author": "Elite Author",
   "license": "Commercial",
   "devDependencies": {
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5"
+    "tailwindcss": "^3.3.5",
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.5.1",
+    "fs-extra": "^11.3.3"
   }
 }

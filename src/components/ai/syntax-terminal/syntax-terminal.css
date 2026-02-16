@@ -1,0 +1,28 @@
+.syntax-terminal pre {
+    margin: 0;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    tab-size: 4;
+}
+
+.syntax-terminal code {
+    font-family: 'Geist Mono', 'Fira Code', monospace;
+}
+
+.syntax-terminal .custom-scrollbar::-webkit-scrollbar {
+    height: 4px;
+}
+
+.syntax-terminal .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.syntax-terminal .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.syntax-terminal .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
