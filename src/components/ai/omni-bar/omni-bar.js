@@ -124,12 +124,12 @@
             const action = item.getAttribute('data-action');
 
             if (url) {
-                window.location.href = url;
+                const root = window.SaasifyRoot || '';
+                window.location.href = `${root}${url}`;
             } else if (action === 'ask-ai') {
-                console.log('[OmniBar] Trigger AI Query:', this.input.value);
-                // Dispatch event for AI component
+                const prompt = this.input.value.trim() || 'Provide an architectural summary of Saasify AI';
                 window.dispatchEvent(new CustomEvent('saasify:ai-request', {
-                    detail: { query: this.input.value }
+                    detail: { prompt }
                 }));
                 this.close();
             }

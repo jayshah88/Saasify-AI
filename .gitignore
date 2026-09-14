@@ -1,4 +1,4 @@
-# Logs
+# Logs & Debug
 logs
 *.log
 npm-debug.log*
@@ -7,23 +7,36 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Dependencies
+node_modules/
 
-# Editor directories and files
+# Production Build Output
+dist/
+dist-ssr/
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+*.local
+!.env.example
+
+# Editor & OS Artifacts
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-#BMad 
-_bmad
-_bmad-output
-.gemini
+# IDE & AI Assistant Caches
+.ai-ide-cache*
+.context-memory*
+.gemini/
+_bmad/
+_bmad-output/
+scratch/

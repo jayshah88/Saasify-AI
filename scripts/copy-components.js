@@ -30,6 +30,11 @@ async function finalizeBuild() {
             content = content.replace(/src="(?:\.\.\/)+src\//g, `src="${prefix}src/`);
             content = content.replace(/href="(?:\.\.\/)+src\//g, `href="${prefix}src/`);
             
+            // Rewrite src/pages/ links for flattened depth 0 files
+            if (depth === 0) {
+                content = content.replace(/href="src\/pages\//g, 'href="');
+            }
+            
             await fs.writeFile(dest, content);
             console.log(`Processed [Depth ${depth}]: ${path.basename(dest)}`);
         }
@@ -46,6 +51,8 @@ async function finalizeBuild() {
             for (const file of files) {
                 const filePath = path.join(pagesDir, file);
                 if ((await fs.stat(filePath)).isFile() && file.endsWith('.html')) {
+                    // Do not overwrite dist/index.html with src/pages/index.html
+                    if (file === 'index.html') continue;
                     await processFile(filePath, path.join(distDir, file), 0);
                 }
             }
@@ -67,6 +74,9 @@ async function finalizeBuild() {
                     }
                 }
             }
+
+            // Remove temporary unflattened src/pages directory from dist
+            await fs.remove(pagesDir);
         }
 
         console.log('--- Build finalized and paths corrected ---');

@@ -24,22 +24,28 @@
             overflow-x: auto;
         }
     </style>
-  <link rel='stylesheet' href='src/compiled-style.css'>
+  <link rel='stylesheet' href='../src/compiled-style.css'>
   <script>(function(){const t=localStorage.getItem('saasify-theme')||'light';if(t==='dark')document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark')})();</script>
 </head>
-<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 antialiased transition-colors duration-300 font-sans ">
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 antialiased transition-colors duration-300 font-sans">
 
-    <div class="flex h-screen overflow-hidden">
+    <div class="flex h-screen overflow-hidden relative">
+        <!-- Mobile Docs Overlay -->
+        <div id="docs-overlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-30 hidden md:hidden"></div>
+
         <!-- Sidebar -->
-        <aside class="w-64 dark:bg-slate-900 border-r dark:border-white/10 flex-shrink-0 overflow-y-auto">
-            <div class="p-6 border-b border-white/5">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold">S</div>
+        <aside id="docs-sidebar" class="fixed md:static inset-y-0 left-0 z-40 w-64 dark:bg-slate-900 border-r dark:border-white/10 flex-shrink-0 overflow-y-auto transform -translate-x-full md:translate-x-0 transition-transform duration-300">
+            <div class="p-6 border-b dark:border-white/5 flex items-center justify-between">
+                <a href="../index.html" class="flex items-center gap-2 group">
+                    <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold group-hover:scale-105 transition-transform">S</div>
                     <span class="font-bold dark:text-white text-lg">Saasify Docs</span>
-                </div>
-                <div class="text-xs text-slate-500 dark:text-slate-400 mt-2">Version 1.2.0</div>
+                </a>
+                <button id="docs-close-btn" class="md:hidden p-1.5 text-slate-400 hover:text-white" aria-label="Close docs menu">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
             </div>
-            <nav class="p-4 space-y-1">
+            <div class="px-6 py-2 text-xs text-slate-500 dark:text-slate-400">Version 1.2.0 • MIT License</div>
+            <nav class="p-4 space-y-1" id="docs-nav">
                 <a href="#introduction" class="block px-3 py-2 rounded-lg bg-white/5 dark:text-white font-medium">Introduction</a>
                 <a href="#getting-started" class="block px-3 py-2 rounded-lg text-slate-400 hover:dark:text-white hover:bg-white/5 transition-colors">Getting Started</a>
                 <a href="#theming" class="block px-3 py-2 rounded-lg text-slate-400 hover:dark:text-white hover:bg-white/5 transition-colors">Global Theming</a>
@@ -52,11 +58,27 @@
                 <a href="#dashboard" class="block px-3 py-2 rounded-lg text-slate-400 hover:dark:text-white hover:bg-white/5 transition-colors">Dashboard Suite</a>
                 <a href="#sitemap" class="block px-3 py-2 rounded-lg text-slate-400 hover:dark:text-white hover:bg-white/5 transition-colors">Full Sitemap</a>
                 <a href="#architecture" class="block px-3 py-2 rounded-lg text-slate-400 hover:dark:text-white hover:bg-white/5 transition-colors">Architecture</a>
+
+                <div class="pt-4 mt-4 border-t dark:border-white/10">
+                    <a href="../index.html" class="flex items-center gap-2 px-3 py-2 text-sm text-indigo-400 hover:text-indigo-300 font-medium">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                        Back to App
+                    </a>
+                </div>
             </nav>
         </aside>
 
         <!-- Content -->
-        <main class="flex-1 overflow-y-auto p-8 lg:p-12 scroll-smooth">
+        <main class="flex-1 overflow-y-auto p-6 md:p-8 lg:p-12 scroll-smooth">
+            <!-- Mobile Header for Docs -->
+            <div class="md:hidden flex items-center justify-between pb-6 mb-6 border-b dark:border-white/10">
+                <button id="docs-mobile-btn" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-sm font-medium text-slate-700 dark:text-slate-200" aria-label="Open docs menu">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    <span>Menu</span>
+                </button>
+                <a href="../index.html" class="text-sm font-medium text-indigo-500 hover:underline">← App Home</a>
+            </div>
+
             <div class="max-w-3xl mx-auto space-y-16">
                 
                 <!-- Intro -->
@@ -251,6 +273,35 @@ window.dispatchEvent(new CustomEvent('saasify:open-notifications'));</code></pre
         </main>
     </div>
 
+    <script>
+        (function() {
+            const sidebar = document.getElementById('docs-sidebar');
+            const overlay = document.getElementById('docs-overlay');
+            const openBtn = document.getElementById('docs-mobile-btn');
+            const closeBtn = document.getElementById('docs-close-btn');
+
+            function toggle(open) {
+                if (open) {
+                    sidebar.classList.remove('-translate-x-full');
+                    overlay.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    sidebar.classList.add('-translate-x-full');
+                    overlay.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            openBtn?.addEventListener('click', () => toggle(true));
+            closeBtn?.addEventListener('click', () => toggle(false));
+            overlay?.addEventListener('click', () => toggle(false));
+            document.querySelectorAll('#docs-nav a').forEach(a => {
+                a.addEventListener('click', () => {
+                    if (window.innerWidth < 768) toggle(false);
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
 

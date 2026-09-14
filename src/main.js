@@ -2,38 +2,38 @@ import './style.css';
 import { ThemeManager } from './config/theme.js';
 import { EventBus } from './core/events.js';
 import { UI } from './core/ui.js';
+import { MockAI } from './core/mock-ai.js';
 
 console.log('[Saasify] Script loading...');
 
 /**
  * Saasify Component Loader
- * Dynamically injects global components like OmniBar.
+ * Dynamically injects modular components like OmniBar, Sidebar, and Drawers.
  */
 const ComponentLoader = {
-    // Deterministic path resolution for XAMPP/Subdirectory environments
     getProjectRoot() {
-        const path = window.location.pathname;
-        // In dist, we might be at /Saasify-AI/dist/dashboard/index.html
-        // We want /Saasify-AI/dist/
-        const distIndex = path.indexOf('/dist/');
-        if (distIndex !== -1) {
-            return path.substring(0, distIndex + 6);
+        try {
+            const moduleUrl = new URL(import.meta.url);
+            const rootUrl = new URL('../', moduleUrl);
+            let rootPath = rootUrl.pathname;
+            if (!rootPath.endsWith('/')) rootPath += '/';
+            window.SaasifyRoot = rootPath;
+            return rootPath;
+        } catch (e) {
+            window.SaasifyRoot = '/';
+            return '/';
         }
-        // Fallback for src development
-        const srcIndex = path.indexOf('/src/');
-        if (srcIndex !== -1) {
-            return path.substring(0, srcIndex);
-        }
-        // Fallback to current domain root
-        return '/';
     },
 
     async inject(containerId, htmlPath, scriptPath) {
+        if (window.location.protocol === 'file:') {
+            console.warn('[Saasify] Component dynamic injection requires an HTTP server (e.g. Vite dev, preview, or static web server).');
+            return;
+        }
+
         const root = this.getProjectRoot();
-        // Ensure path starts with src/
         const cleanHtmlPath = htmlPath.startsWith('/') ? htmlPath.substring(1) : htmlPath;
         const cleanScriptPath = scriptPath ? (scriptPath.startsWith('/') ? scriptPath.substring(1) : scriptPath) : null;
-
         const fullHtmlPath = `${root}${cleanHtmlPath}`;
         
         try {
@@ -59,7 +59,6 @@ const ComponentLoader = {
                 script.type = 'text/javascript';
                 document.body.appendChild(script);
             }
-            console.log(`[Loader] Injected: ${fullHtmlPath}`);
         } catch (e) {
             console.error(`[Loader] Failed to inject ${htmlPath}:`, e);
         }
@@ -89,9 +88,144 @@ try {
     console.error('[Saasify Init Error]', e);
 }
 
+// Wire MockAI Streaming Engine to Global AI Requests
+window.addEventListener('saasify:ai-request', async (e) => {
+    const prompt = e.detail?.prompt || e.detail?.query || 'Analyze system architecture and latency cycles';
+    console.log('[Saasify AI] Processing request:', prompt);
+
+    const terminalCode = document.querySelector('#syntax-terminal-demo code, .syntax-terminal code');
+    if (terminalCode) {
+        terminalCode.textContent = '// Initializing neural reasoning stream...\n';
+        window.dispatchEvent(new CustomEvent('saasify:ai-loading-start'));
+
+        let fullText = '';
+        try {
+            for await (const token of MockAI.generateResponse(prompt, 'expert')) {
+                fullText += token;
+                terminalCode.textContent = fullText;
+                const pre = terminalCode.closest('pre') || terminalCode.parentElement;
+                if (pre) pre.scrollTop = pre.scrollHeight;
+            }
+            UI.showToast('Response generated successfully!', 'success');
+        } catch (err) {
+            terminalCode.textContent += '\n// [Error] Token generation interrupted.';
+            console.error('[Saasify AI] Stream error:', err);
+        } finally {
+            window.dispatchEvent(new CustomEvent('saasify:ai-loading-end'));
+        }
+    } else {
+        UI.showToast(`AI query processed: "${prompt.slice(0, 35)}..."`, 'success');
+    }
+});
+
+// Interactive Form and Auth Handlers
+const initForms = () => {
+    const root = window.SaasifyRoot || ComponentLoader.getProjectRoot();
+
+    // Login Form
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = loginForm.querySelector('button[type="submit"]');
+            const emailInput = loginForm.querySelector('#email, input[type="email"]');
+            
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `
+                    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg> Signing in...`;
+            }
+
+            try {
+                localStorage.setItem('saasify_user', JSON.stringify({
+                    email: emailInput?.value || 'jay@example.com',
+                    name: 'Jay Shah',
+                    role: 'Owner'
+                }));
+            } catch (err) {}
+
+            UI.showToast('Welcome back! Redirecting to Dashboard...', 'success');
+            setTimeout(() => {
+                const target = window.location.pathname.includes('/auth/') ? '../dashboard/index.html' : 'dashboard/index.html';
+                window.location.href = target;
+            }, 700);
+        });
+    }
+
+    // Register Form
+    const registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = registerForm.querySelector('button[type="submit"]');
+            const emailInput = registerForm.querySelector('input[type="email"]');
+            
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `
+                    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg> Creating Account...`;
+            }
+
+            try {
+                localStorage.setItem('saasify_user', JSON.stringify({
+                    email: emailInput?.value || 'jay@example.com',
+                    name: 'Jay Shah',
+                    role: 'Owner'
+                }));
+            } catch (err) {}
+
+            UI.showToast('Account created! Redirecting to Dashboard...', 'success');
+            setTimeout(() => {
+                const target = window.location.pathname.includes('/auth/') ? '../dashboard/index.html' : 'dashboard/index.html';
+                window.location.href = target;
+            }, 700);
+        });
+    }
+
+    // Contact Form
+    const contactForm = document.querySelector('form.max-w-lg');
+    if (contactForm && window.location.pathname.includes('contact')) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Message Received!';
+                submitBtn.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+                submitBtn.classList.add('bg-emerald-600');
+            }
+            contactForm.reset();
+            UI.showToast('Thank you! We will get back to you within 24 hours.', 'success');
+        });
+    }
+
+    // Forgot Password Form
+    const forgotForm = document.querySelector('main form.space-y-6');
+    if (forgotForm && window.location.pathname.includes('forgot-password')) {
+        forgotForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = forgotForm.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Link Sent!';
+                submitBtn.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+                submitBtn.classList.add('bg-emerald-600');
+            }
+            UI.showToast('Password reset link sent to your email address.', 'success');
+        });
+    }
+};
+
 // Global UI Handlers
 const bootstrap = async () => {
     console.log('[Saasify] Bootstrapping components...');
+    ComponentLoader.getProjectRoot();
     
     // 1. Load Global Components
     await ComponentLoader.loadAI('omni-bar');
@@ -116,7 +250,7 @@ const bootstrap = async () => {
         await ComponentLoader.loadAI('syntax-terminal', 'syntax-terminal-demo');
     }
 
-    // Header Toggle Logic (Sync with ThemeManager)
+    // Header Toggle Logic
     const themeToggle = document.getElementById('theme-toggle');
     const sunIcon = document.getElementById('icon-sun');
     const moonIcon = document.getElementById('icon-moon');
@@ -143,6 +277,9 @@ const bootstrap = async () => {
     EventBus.on('saasify:theme-change', (e) => {
         updateIcons(e.detail.theme);
     });
+
+    // Initialize interactive form handlers
+    initForms();
 
     console.log('--- Saasify-AI Fully Initialized ---');
 };

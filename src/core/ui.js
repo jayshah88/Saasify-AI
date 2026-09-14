@@ -289,5 +289,27 @@ export const UI = {
                 });
             }
         });
+    },
+
+    showToast(message, type = 'success') {
+        const toast = document.createElement('div');
+        toast.className = `fixed bottom-6 right-6 z-[120] flex items-center gap-3 px-5 py-3 rounded-xl shadow-2xl border text-sm font-medium transition-all duration-300 transform translate-y-8 opacity-0 ${
+            type === 'error'
+                ? 'bg-red-500 text-white border-red-400'
+                : 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-white/10 dark:border-slate-200'
+        }`;
+
+        const icon = type === 'error' ? '⚠️' : '✨';
+        toast.innerHTML = `<span>${icon}</span><span>${message}</span>`;
+        document.body.appendChild(toast);
+
+        requestAnimationFrame(() => {
+            toast.classList.remove('translate-y-8', 'opacity-0');
+        });
+
+        setTimeout(() => {
+            toast.classList.add('translate-y-8', 'opacity-0');
+            setTimeout(() => toast.remove(), 300);
+        }, 3500);
     }
 };

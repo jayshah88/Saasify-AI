@@ -1,7 +1,7 @@
 {
   "name": "saasify-ai",
   "version": "1.2.0",
-  "description": "Premium AI SaaS HTML Template - Bento Motion Hybrid",
+  "description": "Production-ready AI SaaS Landing & Dashboard UI Suite with Bento motion, streaming mock AI engine, and zero-framework lock-in.",
   "main": "index.html",
   "type": "module",
   "scripts": {
@@ -9,10 +9,25 @@
     "build": "vite build && npm run copy-components",
     "copy-components": "node scripts/copy-components.js",
     "preview": "vite preview",
-    "test": "node tests/init-check.cjs && node tests/event-bus.test.js && node tests/mock-ai.test.js"
+    "test": "node tests/init-check.cjs && node tests/event-bus.test.js && node tests/mock-ai.test.js && node tests/quality-audit.test.cjs"
   },
-  "author": "Elite Author",
-  "license": "Commercial",
+  "keywords": [
+    "ai-saas",
+    "tailwind-css",
+    "vite",
+    "vanilla-js",
+    "dashboard",
+    "portfolio",
+    "bento-grid",
+    "open-source"
+  ],
+  "author": "Jay Shah <https://github.com/jayshah88>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jayshah88/Saasify-AI.git"
+  },
+  "homepage": "https://github.com/jayshah88/Saasify-AI#readme",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",
