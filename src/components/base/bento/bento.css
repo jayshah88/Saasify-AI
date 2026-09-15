@@ -7,18 +7,25 @@
 }
 
 .bento-card {
-    background-color: rgba(15, 23, 42, 0.6); /* Slate 900 / 60 */
+    background-color: #ffffff;
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid #e2e8f0; /* slate-200 */
     border-radius: 1.5rem; /* 24px */
     overflow: hidden;
     position: relative;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.dark .bento-card {
+    background-color: rgba(15, 23, 42, 0.6); /* Slate 900 / 60 */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: none;
 }
 
 .bento-card:hover {
-    border-color: rgba(99, 102, 241, 0.3); /* Indigo 500 / 30 */
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
+    border-color: rgba(99, 102, 241, 0.4); /* Indigo 500 / 40 */
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.1);
 }
 
 /* Responsive Columns */

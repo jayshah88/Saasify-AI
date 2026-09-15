@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm run copy-components",
+    "css": "tailwindcss -i src/style.css -o src/compiled-style.css",
+    "build": "tailwindcss -i src/style.css -o src/compiled-style.css && vite build && npm run copy-components",
     "copy-components": "node scripts/copy-components.js",
     "preview": "vite preview",
     "test": "node tests/init-check.cjs && node tests/event-bus.test.js && node tests/mock-ai.test.js && node tests/quality-audit.test.cjs"

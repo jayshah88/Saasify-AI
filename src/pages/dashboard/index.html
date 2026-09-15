@@ -4,66 +4,218 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | Saasify AI</title>
-    <!-- Vite Entry Point (Adjusted path for nested page) -->
+    <!-- Vite Entry Point -->
     <script type="module" src='../../main.js'></script>
     <script type="module" src="./dashboard.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel='stylesheet' href='../../compiled-style.css'>
-  <script>(function(){const t=localStorage.getItem('saasify-theme')||'light';if(t==='dark')document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark')})();</script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='../../compiled-style.css'>
+    <script>(function(){const t=localStorage.getItem('saasify-theme')||'light';if(t==='dark')document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark')})();</script>
 </head>
 <body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-white font-sans antialiased overflow-hidden">
 
     <div class="noise-overlay"></div>
 
-    <!-- Sidebar Injection Point (handled by ComponentLoader in real app, hardcoded for demo) -->
-    <div id="sidebar-container"></div>
+    <!-- Sidebar -->
+    <div id="sidebar-container">
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-white/5 flex flex-col transition-all duration-300 transform -translate-x-full md:translate-x-0">
+            <!-- Brand -->
+            <div class="h-16 flex items-center justify-between px-6 border-b border-slate-200 dark:border-white/5 shrink-0">
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold shrink-0 shadow-md shadow-indigo-500/20">S</div>
+                    <span class="font-display font-bold text-slate-900 dark:text-white tracking-tight sidebar-text whitespace-nowrap overflow-hidden">Saasify<span class="text-indigo-500">.ai</span></span>
+                </a>
+                <button id="sidebar-close-mobile" class="md:hidden p-1.5 text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg" aria-label="Close sidebar">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 overflow-y-auto py-4 px-3 space-y-1 custom-scrollbar" id="sidebar-nav">
+                <a href="index.html" data-page="index.html" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors group text-indigo-600 dark:text-white bg-indigo-50 dark:bg-white/10 font-semibold">
+                    <svg class="w-5 h-5 shrink-0 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+                    <span class="ml-3 sidebar-text whitespace-nowrap overflow-hidden">Dashboard</span>
+                </a>
+                <a href="analytics.html" data-page="analytics.html" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors group text-slate-600 dark:text-slate-400 hover:text-indigo-600 hover:dark:text-white hover:bg-slate-50 hover:dark:bg-white/5">
+                    <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z" /></svg>
+                    <span class="ml-3 sidebar-text whitespace-nowrap overflow-hidden">Analytics</span>
+                </a>
+                <a href="lab.html" data-page="lab.html" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors group text-slate-600 dark:text-slate-400 hover:text-indigo-600 hover:dark:text-white hover:bg-slate-50 hover:dark:bg-white/5">
+                    <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                    <span class="ml-3 sidebar-text whitespace-nowrap overflow-hidden">AI Lab</span>
+                </a>
+                <a href="team.html" data-page="team.html" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors group text-slate-600 dark:text-slate-400 hover:text-indigo-600 hover:dark:text-white hover:bg-slate-50 hover:dark:bg-white/5">
+                    <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                    <span class="ml-3 sidebar-text whitespace-nowrap overflow-hidden">Team</span>
+                </a>
+                <a href="billing.html" data-page="billing.html" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors group text-slate-600 dark:text-slate-400 hover:text-indigo-600 hover:dark:text-white hover:bg-slate-50 hover:dark:bg-white/5">
+                    <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a2 2 0 002-2V5a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    <span class="ml-3 sidebar-text whitespace-nowrap overflow-hidden">Billing</span>
+                </a>
+                <a href="settings.html" data-page="settings.html" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors group text-slate-600 dark:text-slate-400 hover:text-indigo-600 hover:dark:text-white hover:bg-slate-50 hover:dark:bg-white/5">
+                    <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    <span class="ml-3 sidebar-text whitespace-nowrap overflow-hidden">Settings</span>
+                </a>
+
+                <div class="pt-4 mt-4 border-t border-slate-200 dark:border-white/5">
+                    <a href="../index.html" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-slate-500 hover:text-indigo-600 hover:dark:text-white transition-colors">
+                        <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                        <span class="ml-3 sidebar-text whitespace-nowrap overflow-hidden">Back to Website</span>
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Footer / Collapse Toggle -->
+            <div class="p-4 border-t border-slate-200 dark:border-white/5 shrink-0 hidden md:block">
+                <button id="sidebar-toggle" class="w-full flex items-center justify-center p-2 rounded-lg text-slate-400 hover:bg-slate-50 hover:dark:bg-white/5 hover:text-indigo-600 hover:dark:text-white transition-colors" aria-label="Collapse sidebar">
+                    <svg class="w-5 h-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" /></svg>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Mobile Overlay -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-30 hidden md:hidden"></div>
+    </div>
 
     <!-- Main Content -->
-    <main class="ml-0 md:ml-64 transition-all duration-300 h-screen overflow-y-auto p-4 md:p-8">
+    <main class="ml-0 md:ml-64 transition-all duration-300 h-screen overflow-y-auto p-4 md:p-8 space-y-8">
         <!-- Mobile Header -->
-        <div class="md:hidden flex items-center justify-between mb-6">
+        <div class="md:hidden flex items-center justify-between mb-4">
             <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center font-bold">S</div>
-                <span class="font-display font-bold text-lg">Saasify</span>
+                <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-white shadow-md shadow-indigo-500/20">S</div>
+                <span class="font-display font-bold text-lg text-slate-900 dark:text-white">Saasify</span>
             </div>
-            <button id="mobile-menu-btn" class="p-2 text-slate-400">
+            <button id="mobile-menu-btn" class="p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white" aria-label="Toggle navigation">
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
             </button>
         </div>
 
-        <!-- Dashboard Header -->
-        <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+        <!-- Dashboard Header & Actions -->
+        <header class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
             <div>
-                <h1 class="font-display text-3xl font-bold text-slate-900 dark:text-white">Analytics Overview</h1>
-                <p class="text-slate-500 dark:text-slate-400 text-sm">Monitor your neural infrastructure and agent performance.</p>
-            </div>
-            <div class="flex items-center gap-3 w-full md:w-auto">
-                <div class="relative flex-1 md:w-64">
-                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                    <input type="text" placeholder="Search agents..." class="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all">
+                <div class="flex items-center gap-3">
+                    <h1 class="font-display text-3xl font-bold text-slate-900 dark:text-white">Neural Operations Hub</h1>
+                    <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Cluster Healthy
+                    </span>
                 </div>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Autonomous agent telemetry, GPU cluster health, and real-time inference routing.</p>
+            </div>
+
+            <!-- Header Controls -->
+            <div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
+                <!-- Time-Range Pills -->
+                <div class="inline-flex p-1 bg-slate-100 dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 text-xs font-semibold" id="time-range-group">
+                    <button data-range="24h" class="time-range-btn px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">24H</button>
+                    <button data-range="7d" class="time-range-btn px-3 py-1.5 rounded-lg bg-indigo-600 text-white shadow-sm transition-all">7D</button>
+                    <button data-range="30d" class="time-range-btn px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">30D</button>
+                    <button data-range="90d" class="time-range-btn px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">90D</button>
+                </div>
+
+                <!-- Export CSV Button -->
+                <button 
+                    id="export-csv-btn"
+                    class="px-3.5 py-2 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white text-xs font-semibold flex items-center gap-2 hover:border-indigo-500/30 transition-all active:scale-95 shadow-sm">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                    <span>Export CSV</span>
+                </button>
+
+                <!-- Deploy Agent Button -->
+                <button 
+                    id="open-deploy-modal-btn"
+                    class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center gap-2 shadow-lg shadow-indigo-500/25 transition-all active:scale-95">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+                    <span>Deploy Agent</span>
+                </button>
+
+                <!-- Notification Bell -->
                 <button 
                     onclick="window.dispatchEvent(new CustomEvent('saasify:open-notifications'))"
-                    class="p-2.5 rounded-xl border border-slate-200 dark:border-white/10 text-slate-500 hover:text-indigo-600 transition-colors relative">
+                    class="p-2.5 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-slate-500 hover:text-indigo-600 dark:hover:text-white transition-colors relative"
+                    aria-label="Open notifications">
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
                     <span class="absolute top-2 right-2.5 w-2 h-2 bg-indigo-500 rounded-full border-2 border-white dark:border-slate-950"></span>
                 </button>
+
+                <!-- User Profile -->
                 <div 
                     onclick="window.dispatchEvent(new CustomEvent('saasify:open-profile'))"
-                    class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 p-0.5 shadow-lg shadow-indigo-500/20 cursor-pointer hover:scale-105 transition-transform active:scale-95">
-                    <img src="https://picsum.photos/100/100?random=1" class="w-full h-full rounded-[10px] object-cover border border-white/20" alt="User">
+                    class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 p-0.5 shadow-md shadow-indigo-500/20 cursor-pointer hover:scale-105 transition-transform active:scale-95"
+                    title="Open profile">
+                    <div class="w-full h-full rounded-[9px] bg-indigo-600 flex items-center justify-center text-white text-xs font-bold border border-white/20">JS</div>
                 </div>
             </div>
         </header>
 
-        <!-- Bento Grid Shell -->
+        <!-- Cluster Telemetry Bar (4 Cards) -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- Telemetry 1: H100 Cluster -->
+            <div class="bento-card p-5 border border-slate-200 dark:border-white/10 flex items-center justify-between">
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Compute Fleet</span>
+                    <div class="text-xl font-display font-bold text-slate-900 dark:text-white mt-1">32x H100 SXM5</div>
+                    <div class="text-xs text-emerald-500 font-medium mt-1 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                        88.4% Load • 61°C avg
+                    </div>
+                </div>
+                <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
+                </div>
+            </div>
+
+            <!-- Telemetry 2: Throughput -->
+            <div class="bento-card p-5 border border-slate-200 dark:border-white/10 flex items-center justify-between">
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Throughput</span>
+                    <div class="text-xl font-display font-bold text-slate-900 dark:text-white mt-1" id="telemetry-throughput">2,840 req/s</div>
+                    <div class="text-xs text-indigo-500 font-medium mt-1 flex items-center gap-1">
+                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                        Peak 4,120 • +14.2%
+                    </div>
+                </div>
+                <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+            </div>
+
+            <!-- Telemetry 3: Cache Hit Ratio -->
+            <div class="bento-card p-5 border border-slate-200 dark:border-white/10 flex items-center justify-between">
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Cache Hit Ratio</span>
+                    <div class="text-xl font-display font-bold text-slate-900 dark:text-white mt-1">94.8%</div>
+                    <div class="text-xs text-emerald-500 font-medium mt-1 flex items-center gap-1">
+                        <span>Redis Vector Store • 1.4M saved</span>
+                    </div>
+                </div>
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3V7c0-2-1.5-3-3.5-3h-9C5.5 4 4 5 4 7zM4 12h16" /></svg>
+                </div>
+            </div>
+
+            <!-- Telemetry 4: P99 Latency -->
+            <div class="bento-card p-5 border border-slate-200 dark:border-white/10 flex items-center justify-between">
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">P99 Gateway Latency</span>
+                    <div class="text-xl font-display font-bold text-slate-900 dark:text-white mt-1">112 ms</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">
+                        99.99% SLA • 0.018% err
+                    </div>
+                </div>
+                <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bento Grid Shell (7 Cards) -->
         <div class="bento-grid">
             <!-- Widget 1: Credit Balance -->
             <div class="bento-card p-6 flex flex-col justify-between">
                 <div>
                     <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">Credit Balance</h3>
                     <div class="flex items-end gap-2">
-                        <span class="text-3xl font-display font-bold text-slate-900 dark:text-white">84.2k</span>
+                        <span class="text-3xl font-display font-bold text-slate-900 dark:text-white" id="stat-credit-balance">84.2k</span>
                         <span class="text-slate-500 text-sm mb-1">/ 100k</span>
                     </div>
                 </div>
@@ -71,23 +223,24 @@
                     <div class="w-full bg-slate-100 dark:bg-white/5 h-2 rounded-full overflow-hidden">
                         <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full w-[84%]"></div>
                     </div>
-                    <p class="text-[10px] text-slate-500 mt-2">Resets in 12 days</p>
+                    <p class="text-[10px] text-slate-500 mt-2">Resets in 12 days • Auto-refill enabled</p>
                 </div>
             </div>
 
             <!-- Widget 2: Token Usage Chart -->
-            <div class="bento-card col-span-2 row-span-2 p-6">
-                <div class="flex justify-between items-start mb-6">
+            <div class="bento-card col-span-1 md:col-span-2 row-span-2 p-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-6">
                     <div>
                         <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500">Inference Volume</h3>
-                        <div class="text-2xl font-display font-bold mt-1 text-slate-900 dark:text-white">124,592 Tokens</div>
+                        <div class="text-2xl font-display font-bold mt-1 text-slate-900 dark:text-white" id="stat-tokens-generated">124,592 Tokens</div>
                     </div>
-                    <select class="text-xs bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg px-2 py-1 outline-none text-slate-600 dark:text-slate-400">
-                        <option>Last 7 Days</option>
-                        <option>Last 30 Days</option>
+                    <select id="chart-range-select" class="text-xs bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg px-2.5 py-1.5 outline-none text-slate-700 dark:text-slate-300 font-medium">
+                        <option value="7d">Last 7 Days</option>
+                        <option value="30d">Last 30 Days</option>
+                        <option value="90d">Last 90 Days</option>
                     </select>
                 </div>
-                <div class="h-56 relative">
+                <div class="h-60 relative">
                     <canvas id="revenue-chart"></canvas>
                 </div>
             </div>
@@ -96,74 +249,83 @@
             <div class="bento-card p-6">
                 <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Active Agents</h3>
                 <div class="flex items-center justify-between">
-                    <div class="text-4xl font-display font-bold text-slate-900 dark:text-white">12</div>
+                    <div class="text-4xl font-display font-bold text-slate-900 dark:text-white" id="stat-active-agents">12</div>
                     <div class="flex -space-x-2">
-                        <div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-indigo-500 flex items-center justify-center text-[10px] font-bold text-white">A1</div>
-                        <div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-purple-500 flex items-center justify-center text-[10px] font-bold text-white">A2</div>
-                        <div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-slate-700 flex items-center justify-center text-[10px] font-bold text-white">+9</div>
+                        <div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-indigo-500 flex items-center justify-center text-[10px] font-bold text-white shadow-sm">A1</div>
+                        <div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-purple-500 flex items-center justify-center text-[10px] font-bold text-white shadow-sm">A2</div>
+                        <div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-slate-700 flex items-center justify-center text-[10px] font-bold text-white shadow-sm">+9</div>
                     </div>
                 </div>
                 <div class="mt-4 flex items-center gap-2 text-emerald-500 text-xs font-bold">
-                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd" /></svg>
-                    +2 this week
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd" /></svg>
+                    <span>+2 deployed this week</span>
                 </div>
             </div>
 
             <!-- Widget 4: Top Models -->
             <div class="bento-card p-6">
-                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">Model Mix</h3>
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">Model Distribution</h3>
                 <div class="space-y-4">
                     <div class="space-y-1.5">
-                        <div class="flex justify-between text-[10px]">
+                        <div class="flex justify-between text-xs">
                             <span class="font-medium text-slate-600 dark:text-slate-400">GPT-4o</span>
                             <span class="text-slate-900 dark:text-white font-bold">62%</span>
                         </div>
-                        <div class="w-full bg-slate-100 dark:bg-white/5 h-1 rounded-full overflow-hidden">
+                        <div class="w-full bg-slate-100 dark:bg-white/5 h-1.5 rounded-full overflow-hidden">
                             <div class="bg-indigo-500 h-full w-[62%]"></div>
                         </div>
                     </div>
                     <div class="space-y-1.5">
-                        <div class="flex justify-between text-[10px]">
-                            <span class="font-medium text-slate-600 dark:text-slate-400">Claude 3.5</span>
+                        <div class="flex justify-between text-xs">
+                            <span class="font-medium text-slate-600 dark:text-slate-400">Claude 3.5 Sonnet</span>
                             <span class="text-slate-900 dark:text-white font-bold">28%</span>
                         </div>
-                        <div class="w-full bg-slate-100 dark:bg-white/5 h-1 rounded-full overflow-hidden">
+                        <div class="w-full bg-slate-100 dark:bg-white/5 h-1.5 rounded-full overflow-hidden">
                             <div class="bg-purple-500 h-full w-[28%]"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between text-xs">
+                            <span class="font-medium text-slate-600 dark:text-slate-400">Mistral Large</span>
+                            <span class="text-slate-900 dark:text-white font-bold">10%</span>
+                        </div>
+                        <div class="w-full bg-slate-100 dark:bg-white/5 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-emerald-500 h-full w-[10%]"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Widget 5: Recent Generations -->
-            <div class="bento-card col-span-2 p-6">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500">Recent Output</h3>
-                    <button class="text-xs text-indigo-600 font-bold hover:underline">View All</button>
+            <div class="bento-card col-span-1 md:col-span-2 p-6">
+                <div class="flex justify-between items-center mb-5">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500">Recent Output Artifacts</h3>
+                    <a href="lab.html" class="text-xs text-indigo-600 dark:text-indigo-400 font-bold hover:underline">View All Artifacts &rarr;</a>
                 </div>
-                <div class="space-y-4">
+                <div class="space-y-3">
                     <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-600 flex items-center justify-center">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
                                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                             </div>
                             <div>
                                 <div class="text-sm font-bold text-slate-900 dark:text-white">Q4_Market_Analysis.pdf</div>
-                                <div class="text-[10px] text-slate-500">Generated by Analyst-Agent • 2m ago</div>
+                                <div class="text-[11px] text-slate-500">Analyst-Agent-v4 • 2m ago • 4,120 tokens</div>
                             </div>
                         </div>
-                        <span class="px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-500 text-[10px] font-bold uppercase">Success</span>
+                        <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Success</span>
                     </div>
                     <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-600 flex items-center justify-center">
+                            <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
                                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                             </div>
                             <div>
                                 <div class="text-sm font-bold text-slate-900 dark:text-white">Backend_Refactor.py</div>
-                                <div class="text-[10px] text-slate-500">Generated by Coder-Agent • 45m ago</div>
+                                <div class="text-[11px] text-slate-500">Coder-Agent-Enterprise • 45m ago • 8,920 tokens</div>
                             </div>
                         </div>
-                        <span class="px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-500 text-[10px] font-bold uppercase">Success</span>
+                        <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">Success</span>
                     </div>
                 </div>
             </div>
@@ -177,7 +339,7 @@
                 </div>
                 <div class="mt-4 flex items-center gap-2 text-emerald-500 text-xs font-bold">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    99.9% Uptime
+                    99.9% Global Uptime
                 </div>
             </div>
 
@@ -185,28 +347,378 @@
             <div class="bento-card p-6 bg-gradient-to-br from-indigo-600 to-purple-700 border-none relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl group-hover:scale-110 transition-transform"></div>
                 <div class="relative z-10 h-full flex flex-col justify-between">
-                    <h3 class="text-white font-bold text-lg leading-tight">Unlock Enterprise scale.</h3>
-                    <p class="text-indigo-100 text-[10px] mt-2">Unlimited agents, priority routing, and custom LLM training.</p>
-                    <button class="mt-4 w-full py-2 bg-white text-indigo-600 rounded-lg text-xs font-bold shadow-lg shadow-black/10 hover:bg-slate-50 transition-colors">Upgrade Now</button>
+                    <div>
+                        <span class="text-indigo-200 text-[10px] font-bold uppercase tracking-widest">Scale Plan</span>
+                        <h3 class="text-white font-bold text-lg leading-tight mt-1">Unlock Enterprise Power</h3>
+                        <p class="text-indigo-100 text-xs mt-2 leading-relaxed">Dedicated H100 clusters, fine-tuning endpoints, and custom SLA agreements.</p>
+                    </div>
+                    <a href="billing.html" class="mt-4 block text-center w-full py-2 bg-white text-indigo-600 rounded-lg text-xs font-bold shadow-lg shadow-black/10 hover:bg-slate-50 transition-colors">Upgrade to Enterprise</a>
                 </div>
             </div>
         </div>
+
+        <!-- Section 3: Autonomous Agent Fleet Table -->
+        <section class="bento-card p-6 border border-slate-200 dark:border-white/10 space-y-5">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h2 class="font-display text-xl font-bold text-slate-900 dark:text-white">Autonomous Agent Fleet</h2>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">Real-time status, token consumption, and controls for deployed worker nodes.</p>
+                </div>
+
+                <!-- Agent Filter Tabs & Search -->
+                <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                    <!-- Status Filter Tabs -->
+                    <div class="inline-flex p-1 bg-slate-100 dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 text-xs font-medium" id="agent-filter-tabs">
+                        <button data-filter="all" class="agent-filter-btn px-3 py-1.5 rounded-lg bg-white dark:bg-white/10 text-slate-900 dark:text-white font-semibold shadow-xs transition-all">All (<span id="count-all">5</span>)</button>
+                        <button data-filter="running" class="agent-filter-btn px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">Running (<span id="count-running">3</span>)</button>
+                        <button data-filter="idle" class="agent-filter-btn px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">Idle (<span id="count-idle">1</span>)</button>
+                        <button data-filter="ingesting" class="agent-filter-btn px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">Ingesting (<span id="count-ingesting">1</span>)</button>
+                    </div>
+
+                    <!-- Search Box -->
+                    <div class="relative flex-1 sm:w-56">
+                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        <input 
+                            id="agent-search-input" 
+                            type="text" 
+                            placeholder="Filter agents..." 
+                            class="w-full pl-9 pr-3 py-1.5 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agent Table -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[700px]">
+                    <thead>
+                        <tr class="bg-slate-50 dark:bg-white/5 border-b border-slate-200 dark:border-white/10">
+                            <th class="px-5 py-3 text-[11px] font-bold uppercase tracking-wider text-slate-500">Agent Instance</th>
+                            <th class="px-5 py-3 text-[11px] font-bold uppercase tracking-wider text-slate-500">Foundation Model</th>
+                            <th class="px-5 py-3 text-[11px] font-bold uppercase tracking-wider text-slate-500">Status</th>
+                            <th class="px-5 py-3 text-[11px] font-bold uppercase tracking-wider text-slate-500">Tokens (24h)</th>
+                            <th class="px-5 py-3 text-[11px] font-bold uppercase tracking-wider text-slate-500">Latency</th>
+                            <th class="px-5 py-3 text-[11px] font-bold uppercase tracking-wider text-slate-500">Est. Cost</th>
+                            <th class="px-5 py-3 text-[11px] font-bold uppercase tracking-wider text-slate-500 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 dark:divide-white/5" id="agent-table-body">
+                        <!-- Row 1: Analyst Agent -->
+                        <tr class="agent-row hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition-colors" data-agent-id="agt-1" data-status="running" data-name="Analyst-Agent-v4" data-model="GPT-4o">
+                            <td class="px-5 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-xs shrink-0">
+                                        AN
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-bold text-slate-900 dark:text-white">Analyst-Agent-v4</div>
+                                        <div class="text-[11px] text-slate-500 font-mono">ID: agt-84920-prod</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-5 py-4">
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">GPT-4o Omni</span>
+                            </td>
+                            <td class="px-5 py-4">
+                                <span class="agent-status-badge px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5 w-fit">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    <span>Running</span>
+                                </span>
+                            </td>
+                            <td class="px-5 py-4 text-xs font-semibold text-slate-900 dark:text-white font-mono">2,420,810</td>
+                            <td class="px-5 py-4 text-xs font-medium text-slate-600 dark:text-slate-400">84ms avg</td>
+                            <td class="px-5 py-4 text-xs font-semibold text-slate-900 dark:text-white">$4.84</td>
+                            <td class="px-5 py-4 text-right">
+                                <div class="flex items-center justify-end gap-2">
+                                    <button class="agent-test-btn px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-white/5 hover:bg-indigo-600 hover:text-white text-indigo-600 dark:text-indigo-300 text-xs font-semibold transition-colors" data-agent="Analyst-Agent-v4">Test</button>
+                                    <button class="agent-pause-btn px-2.5 py-1 rounded-lg border border-slate-200 dark:border-white/10 hover:bg-slate-100 dark:hover:bg-white/5 text-slate-600 dark:text-slate-400 text-xs font-semibold transition-colors">Pause</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Row 2: Coder Agent -->
+                        <tr class="agent-row hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition-colors" data-agent-id="agt-2" data-status="running" data-name="Coder-Agent-Enterprise" data-model="Claude 3.5 Sonnet">
+                            <td class="px-5 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-xs shrink-0">
+                                        CD
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-bold text-slate-900 dark:text-white">Coder-Agent-Enterprise</div>
+                                        <div class="text-[11px] text-slate-500 font-mono">ID: agt-77192-prod</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-5 py-4">
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">Claude 3.5 Sonnet</span>
+                            </td>
+                            <td class="px-5 py-4">
+                                <span class="agent-status-badge px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5 w-fit">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    <span>Running</span>
+                                </span>
+                            </td>
+                            <td class="px-5 py-4 text-xs font-semibold text-slate-900 dark:text-white font-mono">5,840,190</td>
+                            <td class="px-5 py-4 text-xs font-medium text-slate-600 dark:text-slate-400">128ms avg</td>
+                            <td class="px-5 py-4 text-xs font-semibold text-slate-900 dark:text-white">$17.52</td>
+                            <td class="px-5 py-4 text-right">
+                                <div class="flex items-center justify-end gap-2">
+                                    <button class="agent-test-btn px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-white/5 hover:bg-indigo-600 hover:text-white text-indigo-600 dark:text-indigo-300 text-xs font-semibold transition-colors" data-agent="Coder-Agent-Enterprise">Test</button>
+                                    <button class="agent-pause-btn px-2.5 py-1 rounded-lg border border-slate-200 dark:border-white/10 hover:bg-slate-100 dark:hover:bg-white/5 text-slate-600 dark:text-slate-400 text-xs font-semibold transition-colors">Pause</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Row 3: Vision Inspector -->
+                        <tr class="agent-row hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition-colors" data-agent-id="agt-3" data-status="idle" data-name="Vision-Inspector-Doc" data-model="Mistral Large">
+                            <td class="px-5 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-xs shrink-0">
+                                        VI
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-bold text-slate-900 dark:text-white">Vision-Inspector-Doc</div>
+                                        <div class="text-[11px] text-slate-500 font-mono">ID: agt-31294-prod</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-5 py-4">
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">Mistral Large 2</span>
+                            </td>
+                            <td class="px-5 py-4">
+                                <span class="agent-status-badge px-2.5 py-1 rounded-full text-[11px] font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 flex items-center gap-1.5 w-fit">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                    <span>Idle</span>
+                                </span>
+                            </td>
+                            <td class="px-5 py-4 text-xs font-semibold text-slate-900 dark:text-white font-mono">920,400</td>
+                            <td class="px-5 py-4 text-xs font-medium text-slate-600 dark:text-slate-400">96ms avg</td>
+                            <td class="px-5 py-4 text-xs font-semibold text-slate-900 dark:text-white">$1.84</td>
+                            <td class="px-5 py-4 text-right">
+                                <div class="flex items-center justify-end gap-2">
+                                    <button class="agent-test-btn px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-white/5 hover:bg-indigo-600 hover:text-white text-indigo-600 dark:text-indigo-300 text-xs font-semibold transition-colors" data-agent="Vision-Inspector-Doc">Test</button>
+                                    <button class="agent-pause-btn px-2.5 py-1 rounded-lg border border-slate-200 dark:border-white/10 hover:bg-slate-100 dark:hover:bg-white/5 text-slate-600 dark:text-slate-400 text-xs font-semibold transition-colors">Resume</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Row 4: Embedding RAG Pipeline -->
+                        <tr class="agent-row hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition-colors" data-agent-id="agt-4" data-status="ingesting" data-name="Embedding-Pipeline-RAG" data-model="Text-Embedding-3">
+                            <td class="px-5 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold text-xs shrink-0">
+                                        EM
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-bold text-slate-900 dark:text-white">Embedding-Pipeline-RAG</div>
+                                        <div class="text-[11px] text-slate-500 font-mono">ID: agt-99214-prod</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-5 py-4">
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">Text-Embedding-3</span>
+                            </td>
+                            <td class="px-5 py-4">
+                                <span class="agent-status-badge px-2.5 py-1 rounded-full text-[11px] font-semibold bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 flex items-center gap-1.5 w-fit">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse"></span>
+                                    <span>Ingesting</span>
+                                </span>
+                            </td>
+                            <td class="px-5 py-4 text-xs font-semibold text-slate-900 dark:text-white font-mono">14,100,250</td>
+                            <td class="px-5 py-4 text-xs font-medium text-slate-600 dark:text-slate-400">32ms avg</td>
+                            <td class="px-5 py-4 text-xs font-semibold text-slate-900 dark:text-white">$2.82</td>
+                            <td class="px-5 py-4 text-right">
+                                <div class="flex items-center justify-end gap-2">
+                                    <button class="agent-test-btn px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-white/5 hover:bg-indigo-600 hover:text-white text-indigo-600 dark:text-indigo-300 text-xs font-semibold transition-colors" data-agent="Embedding-Pipeline-RAG">Test</button>
+                                    <button class="agent-pause-btn px-2.5 py-1 rounded-lg border border-slate-200 dark:border-white/10 hover:bg-slate-100 dark:hover:bg-white/5 text-slate-600 dark:text-slate-400 text-xs font-semibold transition-colors">Pause</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Row 5: Support Triage -->
+                        <tr class="agent-row hover:bg-slate-50/50 dark:hover:bg-white/[0.02] transition-colors" data-agent-id="agt-5" data-status="running" data-name="Support-Triage-Bot" data-model="Llama 3.3 70B">
+                            <td class="px-5 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-xs shrink-0">
+                                        ST
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-bold text-slate-900 dark:text-white">Support-Triage-Bot</div>
+                                        <div class="text-[11px] text-slate-500 font-mono">ID: agt-12903-prod</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-5 py-4">
+                                <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">Llama 3.3 70B</span>
+                            </td>
+                            <td class="px-5 py-4">
+                                <span class="agent-status-badge px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5 w-fit">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    <span>Running</span>
+                                </span>
+                            </td>
+                            <td class="px-5 py-4 text-xs font-semibold text-slate-900 dark:text-white font-mono">1,640,000</td>
+                            <td class="px-5 py-4 text-xs font-medium text-slate-600 dark:text-slate-400">64ms avg</td>
+                            <td class="px-5 py-4 text-xs font-semibold text-slate-900 dark:text-white">$1.15</td>
+                            <td class="px-5 py-4 text-right">
+                                <div class="flex items-center justify-end gap-2">
+                                    <button class="agent-test-btn px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-white/5 hover:bg-indigo-600 hover:text-white text-indigo-600 dark:text-indigo-300 text-xs font-semibold transition-colors" data-agent="Support-Triage-Bot">Test</button>
+                                    <button class="agent-pause-btn px-2.5 py-1 rounded-lg border border-slate-200 dark:border-white/10 hover:bg-slate-100 dark:hover:bg-white/5 text-slate-600 dark:text-slate-400 text-xs font-semibold transition-colors">Pause</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Table Footer -->
+            <div class="flex flex-col sm:flex-row justify-between items-center pt-3 border-t border-slate-100 dark:border-white/5 text-xs text-slate-500 gap-2">
+                <div>Showing <span id="visible-agent-count">5</span> active agents across 3 clusters</div>
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>All neural inference endpoints responding within SLA</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Live In-Dashboard Quick-Prompt & Neural Testing Console -->
+        <section class="bento-card p-6 border border-slate-200 dark:border-white/10 space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                <div>
+                    <h2 class="font-display text-xl font-bold text-slate-900 dark:text-white">Quick Neural Inference Console</h2>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">Dispatch test prompts directly to any fleet agent with real-time streaming output.</p>
+                </div>
+                <!-- Agent Selector -->
+                <div class="flex items-center gap-2">
+                    <label for="quick-agent-select" class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Target:</label>
+                    <select id="quick-agent-select" class="text-xs bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg px-3 py-1.5 outline-none font-medium text-slate-800 dark:text-slate-200">
+                        <option value="Analyst-Agent-v4">Analyst-Agent-v4 (GPT-4o)</option>
+                        <option value="Coder-Agent-Enterprise" selected>Coder-Agent-Enterprise (Claude 3.5)</option>
+                        <option value="Vision-Inspector-Doc">Vision-Inspector-Doc (Mistral Large)</option>
+                        <option value="Embedding-Pipeline-RAG">Embedding-Pipeline-RAG (Text-Embedding-3)</option>
+                        <option value="Support-Triage-Bot">Support-Triage-Bot (Llama 3.3)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Prompt Input with Quick Chips -->
+            <div class="space-y-3">
+                <!-- Prompt Chips -->
+                <div class="flex flex-wrap items-center gap-2">
+                    <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Suggestions:</span>
+                    <button class="quick-chip px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-white/5 hover:bg-indigo-50 hover:text-indigo-600 dark:hover:bg-white/10 dark:hover:text-indigo-400 text-xs text-slate-600 dark:text-slate-300 font-medium transition-colors cursor-pointer" data-prompt="Analyze database query bottlenecks and optimize indexing">Analyze query bottlenecks</button>
+                    <button class="quick-chip px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-white/5 hover:bg-indigo-50 hover:text-indigo-600 dark:hover:bg-white/10 dark:hover:text-indigo-400 text-xs text-slate-600 dark:text-slate-300 font-medium transition-colors cursor-pointer" data-prompt="Refactor authentication middleware to use JWT with Redis cache revocation">Refactor JWT Middleware</button>
+                    <button class="quick-chip px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-white/5 hover:bg-indigo-50 hover:text-indigo-600 dark:hover:bg-white/10 dark:hover:text-indigo-400 text-xs text-slate-600 dark:text-slate-300 font-medium transition-colors cursor-pointer" data-prompt="Summarize SOC2 compliance audit logs and highlight anomalies">Summarize SOC2 Logs</button>
+                </div>
+
+                <!-- Input Field & Run Button -->
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input 
+                        id="quick-prompt-input" 
+                        type="text" 
+                        placeholder="Type prompt instruction or choose a suggestion above..." 
+                        value="Analyze database query bottlenecks and optimize indexing"
+                        class="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all">
+                    
+                    <button 
+                        id="quick-run-btn" 
+                        class="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/25 transition-all active:scale-95 cursor-pointer shrink-0">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <span>Run Inference</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Terminal Output Window -->
+            <div class="syntax-terminal rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-950 shadow-md">
+                <div class="flex items-center justify-between px-4 py-3 bg-white dark:bg-slate-900/80 border-b border-slate-200 dark:border-white/5">
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                        <span class="ml-2 text-xs font-mono text-slate-500 dark:text-slate-400" id="quick-terminal-status">Target: Coder-Agent-Enterprise • Ready</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-[11px] font-mono text-emerald-500 font-semibold" id="quick-token-speed">~78 tokens/s</span>
+                        <button id="quick-copy-output" class="text-xs text-slate-500 hover:text-slate-900 dark:hover:text-white p-1 rounded transition-colors" title="Copy Output" aria-label="Copy Output">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-5 font-mono text-xs leading-relaxed overflow-x-auto max-h-56 custom-scrollbar text-slate-800 dark:text-slate-200" id="quick-terminal-content">
+                    <span class="text-indigo-600 dark:text-indigo-400">// Model ready. Press "Run Inference" or pick a chip above to stream tokens in real time.</span>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Deploy New Agent Modal -->
+    <div id="deploy-agent-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm hidden">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-white/10 shadow-2xl max-w-lg w-full p-6 space-y-5 animate-fade-in-up">
+            <div class="flex justify-between items-center pb-4 border-b border-slate-100 dark:border-white/5">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">Deploy Autonomous Agent</h3>
+                        <p class="text-slate-500 text-xs">Provision a worker instance onto the neural cluster.</p>
+                    </div>
+                </div>
+                <button id="close-deploy-modal-btn" class="p-1 text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+
+            <form id="deploy-agent-form" class="space-y-4">
+                <div class="space-y-1">
+                    <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Agent Name</label>
+                    <input id="new-agent-name" type="text" required placeholder="e.g. Sentry-DevOps-Bot" value="Sentry-DevOps-Bot" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 text-sm text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/20">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Model</label>
+                        <select id="new-agent-model" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 text-sm text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/20">
+                            <option value="GPT-4o">GPT-4o Omni</option>
+                            <option value="Claude 3.5 Sonnet">Claude 3.5 Sonnet</option>
+                            <option value="Mistral Large 2">Mistral Large 2</option>
+                            <option value="Llama 3.3 70B">Llama 3.3 70B</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Task Domain</label>
+                        <select id="new-agent-role" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 text-sm text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/20">
+                            <option value="DevOps & Reliability">DevOps &amp; Reliability</option>
+                            <option value="Security Audit">Security Audit</option>
+                            <option value="Data Pipeline">Data Pipeline</option>
+                            <option value="Automated QA">Automated QA</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="text-xs font-bold uppercase tracking-wider text-slate-500">System Persona Instructions</label>
+                    <textarea id="new-agent-prompt" rows="3" placeholder="Define the agent's core instructions and guidelines..." class="w-full px-3.5 py-2 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 text-sm text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/20 resize-none">Monitor Kubernetes cluster events, alert on pod crash loops, and execute auto-remediation runbooks.</textarea>
+                </div>
+
+                <div class="flex justify-end gap-3 pt-3 border-t border-slate-100 dark:border-white/5">
+                    <button type="button" id="cancel-deploy-btn" class="px-4 py-2 rounded-xl border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-xs font-semibold">Cancel</button>
+                    <button type="submit" id="confirm-deploy-btn" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow-lg shadow-indigo-500/20 active:scale-95">Deploy to Cluster</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating Toast Notification -->
+    <div id="toast-notification" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="px-4 py-3 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-semibold shadow-2xl flex items-center gap-2 border border-white/10">
+            <svg class="w-4 h-4 text-emerald-400 dark:text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <span id="toast-message">Agent successfully deployed</span>
+        </div>
+    </div>
 
     <!-- Global Components -->
     <div id="omni-bar"></div>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

@@ -3,6 +3,7 @@ import { ThemeManager } from './config/theme.js';
 import { EventBus } from './core/events.js';
 import { UI } from './core/ui.js';
 import { MockAI } from './core/mock-ai.js';
+import './components/base/sidebar/sidebar.js';
 
 console.log('[Saasify] Script loading...');
 
@@ -47,17 +48,21 @@ const ComponentLoader = {
 
             const container = document.getElementById(containerId);
             if (container) {
-                container.appendChild(element);
+                if (!container.firstElementChild) {
+                    container.appendChild(element);
+                }
             } else if (containerId === 'body' || !container) {
                 document.body.appendChild(element);
             }
 
             if (cleanScriptPath) {
                 const fullScriptPath = `${root}${cleanScriptPath}`;
-                const script = document.createElement('script');
-                script.src = fullScriptPath;
-                script.type = 'text/javascript';
-                document.body.appendChild(script);
+                if (!document.querySelector(`script[src="${fullScriptPath}"]`)) {
+                    const script = document.createElement('script');
+                    script.src = fullScriptPath;
+                    script.type = 'text/javascript';
+                    document.body.appendChild(script);
+                }
             }
         } catch (e) {
             console.error(`[Loader] Failed to inject ${htmlPath}:`, e);
@@ -239,7 +244,12 @@ const bootstrap = async () => {
     }
     
     if (document.getElementById('sidebar-container')) {
-        await ComponentLoader.loadBase('sidebar', 'sidebar-container');
+        const sidebarContainer = document.getElementById('sidebar-container');
+        if (!sidebarContainer.firstElementChild) {
+            await ComponentLoader.loadBase('sidebar', 'sidebar-container');
+        } else if (window.SaasifySidebar && typeof window.SaasifySidebar.init === 'function') {
+            window.SaasifySidebar.init();
+        }
     }
 
     if (document.getElementById('prompt-input-demo')) {

@@ -11,7 +11,66 @@
 </head>
 <body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-white font-sans antialiased overflow-hidden">
     <div class="noise-overlay"></div>
-    <div id="sidebar-container"></div>
+    <!-- Sidebar -->
+    <div id="sidebar-container">
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-white/5 flex flex-col transition-all duration-300 transform -translate-x-full md:translate-x-0">
+            <!-- Brand -->
+            <div class="h-16 flex items-center justify-between px-6 border-b border-slate-200 dark:border-white/5 shrink-0">
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold shrink-0 shadow-md shadow-indigo-500/20">S</div>
+                    <span class="font-display font-bold text-slate-900 dark:text-white tracking-tight sidebar-text whitespace-nowrap overflow-hidden">Saasify<span class="text-indigo-500">.ai</span></span>
+                </a>
+                <button id="sidebar-close-mobile" class="md:hidden p-1.5 text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg" aria-label="Close sidebar">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 overflow-y-auto py-4 px-3 space-y-1 custom-scrollbar" id="sidebar-nav">
+                <a href="index.html" data-page="index.html" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors group text-slate-600 dark:text-slate-400 hover:text-indigo-600 hover:dark:text-white hover:bg-slate-50 hover:dark:bg-white/5">
+                    <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+                    <span class="ml-3 sidebar-text whitespace-nowrap overflow-hidden">Dashboard</span>
+                </a>
+                <a href="analytics.html" data-page="analytics.html" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors group text-slate-600 dark:text-slate-400 hover:text-indigo-600 hover:dark:text-white hover:bg-slate-50 hover:dark:bg-white/5">
+                    <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z" /></svg>
+                    <span class="ml-3 sidebar-text whitespace-nowrap overflow-hidden">Analytics</span>
+                </a>
+                <a href="lab.html" data-page="lab.html" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors group text-indigo-600 dark:text-white bg-indigo-50 dark:bg-white/10 font-semibold">
+                    <svg class="w-5 h-5 shrink-0 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                    <span class="ml-3 sidebar-text whitespace-nowrap overflow-hidden">AI Lab</span>
+                </a>
+                <a href="team.html" data-page="team.html" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors group text-slate-600 dark:text-slate-400 hover:text-indigo-600 hover:dark:text-white hover:bg-slate-50 hover:dark:bg-white/5">
+                    <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                    <span class="ml-3 sidebar-text whitespace-nowrap overflow-hidden">Team</span>
+                </a>
+                <a href="billing.html" data-page="billing.html" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors group text-slate-600 dark:text-slate-400 hover:text-indigo-600 hover:dark:text-white hover:bg-slate-50 hover:dark:bg-white/5">
+                    <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a2 2 0 002-2V5a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    <span class="ml-3 sidebar-text whitespace-nowrap overflow-hidden">Billing</span>
+                </a>
+                <a href="settings.html" data-page="settings.html" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors group text-slate-600 dark:text-slate-400 hover:text-indigo-600 hover:dark:text-white hover:bg-slate-50 hover:dark:bg-white/5">
+                    <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    <span class="ml-3 sidebar-text whitespace-nowrap overflow-hidden">Settings</span>
+                </a>
+
+                <div class="pt-4 mt-4 border-t border-slate-200 dark:border-white/5">
+                    <a href="../index.html" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-slate-500 hover:text-indigo-600 hover:dark:text-white transition-colors">
+                        <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                        <span class="ml-3 sidebar-text whitespace-nowrap overflow-hidden">Back to Website</span>
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Footer / Collapse Toggle -->
+            <div class="p-4 border-t border-slate-200 dark:border-white/5 shrink-0 hidden md:block">
+                <button id="sidebar-toggle" class="w-full flex items-center justify-center p-2 rounded-lg text-slate-400 hover:bg-slate-50 hover:dark:bg-white/5 hover:text-indigo-600 hover:dark:text-white transition-colors" aria-label="Collapse sidebar">
+                    <svg class="w-5 h-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" /></svg>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Mobile Overlay -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-30 hidden md:hidden"></div>
+    </div>
 
     <main class="ml-0 md:ml-64 transition-all duration-300 h-screen overflow-y-auto p-4 md:p-8">
         <!-- Mobile Header -->
@@ -26,19 +85,76 @@
         </div>
 
         <header class="mb-8">
-            <h1 class="font-display text-3xl font-bold">AI Lab</h1>
-            <p class="text-slate-500 dark:text-slate-400 text-sm">Experiment with different models and parameters.</p>
+            <h1 class="font-display text-3xl font-bold text-slate-900 dark:text-white">AI Lab</h1>
+            <p class="text-slate-500 dark:text-slate-400 text-sm">Experiment with models, stream inference, and fine-tune hyper-parameters.</p>
         </header>
 
-        <div class="max-w-4xl mx-auto space-y-12">
-            <div class="bento-card p-8">
-                <h3 class="text-sm font-bold mb-6">Interactive Playground</h3>
-                <div id="prompt-input-demo"></div>
+        <div class="max-w-4xl mx-auto space-y-8">
+            <div class="bento-card p-6 md:p-8">
+                <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-4">Interactive Prompt Studio</h3>
+                <div id="prompt-input-demo" class="w-full">
+                    <div class="prompt-input-container w-full relative group">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                        <div class="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl p-4 shadow-xl flex flex-col gap-3">
+                            <textarea 
+                                id="ai-prompt-textarea"
+                                class="w-full bg-transparent border-none focus:ring-0 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 resize-none outline-none text-base leading-relaxed custom-scrollbar"
+                                placeholder="Enter an instruction or prompt (e.g. 'Optimize PostgreSQL database connection pooling and indexing')..."
+                                rows="3"
+                                style="min-height: 64px; max-height: 220px;"
+                            ></textarea>
+                            <div class="flex justify-between items-center pt-2 border-t border-slate-100 dark:border-white/5">
+                                <div class="flex gap-2">
+                                    <button type="button" class="p-2 text-slate-400 hover:text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-lg transition-colors" title="Attach Context" aria-label="Attach Context">
+                                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" /></svg>
+                                    </button>
+                                    <button type="button" class="p-2 text-slate-400 hover:text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-lg transition-colors" title="Voice Dictation" aria-label="Voice Dictation">
+                                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+                                    </button>
+                                </div>
+                                <button 
+                                    id="ai-generate-btn"
+                                    type="button"
+                                    class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-xl font-medium flex items-center gap-2 transition-all active:scale-95 shadow-glow-primary cursor-pointer">
+                                    <span>Stream Response</span>
+                                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="bento-card p-8">
-                <h3 class="text-sm font-bold mb-6">Output Preview</h3>
-                <div id="syntax-terminal-demo"></div>
+            <div class="bento-card p-6 md:p-8">
+                <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-4">Neural Output Stream</h3>
+                <div id="syntax-terminal-demo" class="w-full">
+                    <div class="syntax-terminal w-full rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-950 shadow-xl">
+                        <div class="flex items-center justify-between px-5 py-3.5 bg-white dark:bg-slate-900/60 border-b border-slate-200 dark:border-white/5">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="text-xs font-mono text-indigo-600 dark:text-indigo-400 uppercase tracking-widest font-bold">Neural Engine Output</span>
+                                <button type="button" class="terminal-copy-btn p-1.5 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-md transition-all active:scale-90 group cursor-pointer" title="Copy Output" aria-label="Copy Output">
+                                    <svg class="w-4 h-4 copy-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                    </svg>
+                                    <svg class="w-4 h-4 check-icon hidden text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6 overflow-x-auto custom-scrollbar">
+                            <pre class="font-mono text-sm leading-relaxed text-slate-700 dark:text-slate-300"><code><span class="text-indigo-600 dark:text-indigo-400 font-semibold">// Live inference will stream here upon execution...</span>
+<span class="text-slate-500">// Ready to process model tokens.</span></code></pre>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

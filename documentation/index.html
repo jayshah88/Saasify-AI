@@ -34,33 +34,43 @@
         <div id="docs-overlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-30 hidden md:hidden"></div>
 
         <!-- Sidebar -->
-        <aside id="docs-sidebar" class="fixed md:static inset-y-0 left-0 z-40 w-64 dark:bg-slate-900 border-r dark:border-white/10 flex-shrink-0 overflow-y-auto transform -translate-x-full md:translate-x-0 transition-transform duration-300">
-            <div class="p-6 border-b dark:border-white/5 flex items-center justify-between">
+        <aside id="docs-sidebar" class="fixed md:static inset-y-0 left-0 z-40 w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-white/10 flex-shrink-0 overflow-y-auto transform -translate-x-full md:translate-x-0 transition-transform duration-300">
+            <div class="p-6 border-b border-slate-200 dark:border-white/5 flex items-center justify-between">
                 <a href="../index.html" class="flex items-center gap-2 group">
                     <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold group-hover:scale-105 transition-transform">S</div>
-                    <span class="font-bold dark:text-white text-lg">Saasify Docs</span>
+                    <span class="font-bold text-slate-900 dark:text-white text-lg">Saasify Docs</span>
                 </a>
-                <button id="docs-close-btn" class="md:hidden p-1.5 text-slate-400 hover:text-white" aria-label="Close docs menu">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                </button>
+                <div class="flex items-center gap-2">
+                    <button id="theme-toggle" class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none" aria-label="Toggle Dark Mode">
+                        <svg id="icon-sun" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <svg id="icon-moon" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+                    <button id="docs-close-btn" class="md:hidden p-1.5 text-slate-400 hover:text-slate-900 dark:hover:text-white" aria-label="Close docs menu">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                </div>
             </div>
             <div class="px-6 py-2 text-xs text-slate-500 dark:text-slate-400">Version 1.2.0 • MIT License</div>
             <nav class="p-4 space-y-1" id="docs-nav">
-                <a href="#introduction" class="block px-3 py-2 rounded-lg bg-white/5 dark:text-white font-medium">Introduction</a>
-                <a href="#getting-started" class="block px-3 py-2 rounded-lg text-slate-400 hover:dark:text-white hover:bg-white/5 transition-colors">Getting Started</a>
-                <a href="#theming" class="block px-3 py-2 rounded-lg text-slate-400 hover:dark:text-white hover:bg-white/5 transition-colors">Global Theming</a>
-                <a href="#components" class="block px-3 py-2 rounded-lg text-slate-400 hover:dark:text-white hover:bg-white/5 transition-colors">Component Library</a>
-                <div class="pl-4 space-y-1 border-l dark:border-white/10 ml-3 mt-2 mb-2">
+                <a href="#introduction" class="block px-3 py-2 rounded-lg bg-slate-100 dark:bg-white/5 text-slate-900 dark:text-white font-medium">Introduction</a>
+                <a href="#getting-started" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors">Getting Started</a>
+                <a href="#theming" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors">Global Theming</a>
+                <a href="#components" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors">Component Library</a>
+                <div class="pl-4 space-y-1 border-l border-slate-200 dark:border-white/10 ml-3 mt-2 mb-2">
                     <a href="#comp-omnibar" class="block px-3 py-1 text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-400">Omni-Bar</a>
                     <a href="#comp-drawers" class="block px-3 py-1 text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-400">Global Drawers</a>
                     <a href="#comp-bento" class="block px-3 py-1 text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-400">Bento Grid</a>
                 </div>
-                <a href="#dashboard" class="block px-3 py-2 rounded-lg text-slate-400 hover:dark:text-white hover:bg-white/5 transition-colors">Dashboard Suite</a>
-                <a href="#sitemap" class="block px-3 py-2 rounded-lg text-slate-400 hover:dark:text-white hover:bg-white/5 transition-colors">Full Sitemap</a>
-                <a href="#architecture" class="block px-3 py-2 rounded-lg text-slate-400 hover:dark:text-white hover:bg-white/5 transition-colors">Architecture</a>
+                <a href="#dashboard" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors">Dashboard Suite</a>
+                <a href="#sitemap" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors">Full Sitemap</a>
+                <a href="#architecture" class="block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors">Architecture</a>
 
-                <div class="pt-4 mt-4 border-t dark:border-white/10">
-                    <a href="../index.html" class="flex items-center gap-2 px-3 py-2 text-sm text-indigo-400 hover:text-indigo-300 font-medium">
+                <div class="pt-4 mt-4 border-t border-slate-200 dark:border-white/10">
+                    <a href="../index.html" class="flex items-center gap-2 px-3 py-2 text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-medium">
                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
                         Back to App
                     </a>
@@ -71,57 +81,67 @@
         <!-- Content -->
         <main class="flex-1 overflow-y-auto p-6 md:p-8 lg:p-12 scroll-smooth">
             <!-- Mobile Header for Docs -->
-            <div class="md:hidden flex items-center justify-between pb-6 mb-6 border-b dark:border-white/10">
+            <div class="md:hidden flex items-center justify-between pb-6 mb-6 border-b border-slate-200 dark:border-white/10">
                 <button id="docs-mobile-btn" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-sm font-medium text-slate-700 dark:text-slate-200" aria-label="Open docs menu">
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
                     <span>Menu</span>
                 </button>
-                <a href="../index.html" class="text-sm font-medium text-indigo-500 hover:underline">← App Home</a>
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none" aria-label="Toggle Dark Mode">
+                        <svg class="h-5 w-5 sun-mobile hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <svg class="h-5 w-5 moon-mobile" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+                    <a href="../index.html" class="text-sm font-medium text-indigo-500 hover:underline">← App Home</a>
+                </div>
             </div>
 
             <div class="max-w-3xl mx-auto space-y-16">
                 
                 <!-- Intro -->
                 <section id="introduction">
-                    <h1 class="text-4xl font-bold dark:text-white mb-6">Introduction</h1>
+                    <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-6">Introduction</h1>
                     <p class="text-lg leading-relaxed mb-4">
                         Welcome to <strong>Saasify-AI</strong>, the premium HTML template for modern AI startups. 
                         Unlike traditional templates, Saasify is built on a modular "Drop-In" architecture that lets you build complex AI interfaces in minutes, not weeks.
                     </p>
                     <div class="grid grid-cols-2 gap-4 mt-8">
-                        <div class="p-4 dark:bg-slate-900 rounded-xl border border-white/5">
-                            <div class="dark:text-indigo-400 font-bold mb-1">Zero Dependencies</div>
+                        <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-white/5">
+                            <div class="text-indigo-600 dark:text-indigo-400 font-bold mb-1">Zero Dependencies</div>
                             <div class="text-sm">Built with Vanilla JS and Tailwind. No React/Vue lock-in.</div>
                         </div>
-                        <div class="p-4 dark:bg-slate-900 rounded-xl border border-white/5">
-                            <div class="dark:text-indigo-400 font-bold mb-1">Modular Features</div>
+                        <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-white/5">
+                            <div class="text-indigo-600 dark:text-indigo-400 font-bold mb-1">Modular Features</div>
                             <div class="text-sm">Copy-paste complex AI components like "Streaming Response" instantly.</div>
                         </div>
                     </div>
                 </section>
 
                 <!-- Getting Started -->
-                <section id="getting-started" class="pt-8 border-t border-white/5">
-                    <h2 class="text-3xl font-bold dark:text-white mb-6">Getting Started</h2>
+                <section id="getting-started" class="pt-8 border-t border-slate-200 dark:border-white/5">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6">Getting Started</h2>
                     <div class="prose prose-invert max-w-none">
                         <p>We use <strong>Vite</strong> for a lightning-fast development experience.</p>
                         
-                        <h3 class="text-xl font-bold dark:text-white mt-6 mb-3">1. Install Dependencies</h3>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-6 mb-3">1. Install Dependencies</h3>
                         <pre><code>npm install</code></pre>
 
-                        <h3 class="text-xl font-bold dark:text-white mt-6 mb-3">2. Start Development Server</h3>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-6 mb-3">2. Start Development Server</h3>
                         <pre><code>npm run dev</code></pre>
                         <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">This will start a local server at http://localhost:5173 with Hot Module Replacement (HMR).</p>
 
-                        <h3 class="text-xl font-bold dark:text-white mt-6 mb-3">3. Build for Production</h3>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-6 mb-3">3. Build for Production</h3>
                         <pre><code>npm run build</code></pre>
                         <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Generates a production-ready <code>dist/</code> folder containing pure HTML, CSS, and JS.</p>
                     </div>
                 </section>
 
                 <!-- Theming -->
-                <section id="theming" class="pt-8 border-t border-white/5">
-                    <h2 class="text-3xl font-bold dark:text-white mb-6">Global Theming</h2>
+                <section id="theming" class="pt-8 border-t border-slate-200 dark:border-white/5">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6">Global Theming</h2>
                     <p class="mb-6">Change your brand identity in 2 minutes. Open <code>tailwind.config.js</code> and update the colors:</p>
                     
                     <pre><code class="language-js">colors: {
@@ -134,28 +154,28 @@
   }
 }</code></pre>
                     
-                    <div class="mt-6 p-4 bg-indigo-900/20 border border-indigo-500/30 rounded-lg text-indigo-200 text-sm">
+                    <div class="mt-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-500/30 rounded-lg text-indigo-900 dark:text-indigo-200 text-sm">
                         <strong>Note:</strong> Dark Mode is enabled by default. The <code>ThemeManager</code> service automatically handles persistence in localStorage.
                     </div>
                 </section>
 
                 <!-- Components -->
-                <section id="components" class="pt-8 border-t border-white/5">
-                    <h2 class="text-3xl font-bold dark:text-white mb-6">The "Heist" Library</h2>
+                <section id="components" class="pt-8 border-t border-slate-200 dark:border-white/5">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6">The "Heist" Library</h2>
                     <p class="mb-8">Saasify includes specialized AI components found in <code>src/components/ai/</code>. These are self-contained modules you can drop into any project.</p>
 
                     <div class="space-y-12">
                         <!-- OmniBar -->
                         <div id="comp-omnibar">
-                            <h3 class="text-2xl font-bold dark:text-white mb-3">Omni-Bar</h3>
-                            <p class="mb-4">A global command palette triggered by <kbd class="bg-slate-800 px-2 py-1 rounded text-xs border border-white/10">Cmd+K</kbd>.</p>
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Omni-Bar</h3>
+                            <p class="mb-4">A global command palette triggered by <kbd class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 px-2 py-1 rounded text-xs border border-slate-300 dark:border-white/10">Cmd+K</kbd>.</p>
                             <pre><code>// In your main.js
 await ComponentLoader.loadAI('omni-bar');</code></pre>
                         </div>
 
                         <!-- Streaming Response -->
                         <div id="comp-stream">
-                            <h3 class="text-2xl font-bold dark:text-white mb-3">Streaming Response</h3>
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Streaming Response</h3>
                             <p class="mb-4">Simulates an LLM streaming tokens with variable latency. Uses <code>src/core/mock-ai.js</code>.</p>
                             <pre><code>// Usage
 const stream = MockAI.generateResponse('Hello', 'expert');
@@ -165,8 +185,8 @@ for await (const chunk of stream) {
                         </div>
 
                         <!-- Global Drawers -->
-                        <div id="comp-drawers" class="pt-8 border-t border-white/5">
-                            <h3 class="text-2xl font-bold dark:text-white mb-3">Global Drawers</h3>
+                        <div id="comp-drawers" class="pt-8 border-t border-slate-200 dark:border-white/5">
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Global Drawers</h3>
                             <p class="mb-4">Standardized slide-in interfaces for User Profiles and Notifications. Triggered via global events.</p>
                             <pre><code>// Trigger Profile Drawer
 window.dispatchEvent(new CustomEvent('saasify:open-profile'));
@@ -176,8 +196,8 @@ window.dispatchEvent(new CustomEvent('saasify:open-notifications'));</code></pre
                         </div>
 
                         <!-- Bento Grid -->
-                        <div id="comp-bento" class="pt-8 border-t border-white/5">
-                            <h3 class="text-2xl font-bold dark:text-white mb-3">Bento Grid</h3>
+                        <div id="comp-bento" class="pt-8 border-t border-slate-200 dark:border-white/5">
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Bento Grid</h3>
                             <p class="mb-4">A responsive CSS grid system for dashboards. Located in <code>src/components/base/bento/</code>.</p>
                             <pre><code class="language-html">&lt;div class="bento-grid"&gt;
   &lt;div class="bento-card col-span-2"&gt;...&lt;/div&gt;
@@ -188,8 +208,8 @@ window.dispatchEvent(new CustomEvent('saasify:open-notifications'));</code></pre
                 </section>
 
                 <!-- Dashboard Suite -->
-                <section id="dashboard" class="pt-8 border-t border-white/5">
-                    <h2 class="text-3xl font-bold dark:text-white mb-6">Dashboard Suite</h2>
+                <section id="dashboard" class="pt-8 border-t border-slate-200 dark:border-white/5">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6">Dashboard Suite</h2>
                     <p class="mb-6">The template includes a comprehensive dashboard environment with 6 distinct views for managing an AI product.</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-white/5">
@@ -212,13 +232,13 @@ window.dispatchEvent(new CustomEvent('saasify:open-notifications'));</code></pre
                 </section>
 
                 <!-- Sitemap -->
-                <section id="sitemap" class="pt-8 border-t border-white/5">
-                    <h2 class="text-3xl font-bold dark:text-white mb-6">Full Sitemap (35+ Pages)</h2>
+                <section id="sitemap" class="pt-8 border-t border-slate-200 dark:border-white/5">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6">Full Sitemap (35+ Pages)</h2>
                     <p class="mb-6">Saasify-AI is organized into logical groups for rapid deployment:</p>
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
                         <div>
-                            <h4 class="font-bold mb-3 text-indigo-400 uppercase tracking-widest text-[10px]">Landings</h4>
-                            <ul class="space-y-1 text-slate-500">
+                            <h4 class="font-bold mb-3 text-indigo-600 dark:text-indigo-400 uppercase tracking-widest text-[10px]">Landings</h4>
+                            <ul class="space-y-1 text-slate-600 dark:text-slate-400">
                                 <li>index.html (SaaS)</li>
                                 <li>index-v2.html (Product)</li>
                                 <li>index-v3.html (Enterprise)</li>
@@ -227,8 +247,8 @@ window.dispatchEvent(new CustomEvent('saasify:open-notifications'));</code></pre
                             </ul>
                         </div>
                         <div>
-                            <h4 class="font-bold mb-3 text-indigo-400 uppercase tracking-widest text-[10px]">Dashboard</h4>
-                            <ul class="space-y-1 text-slate-500">
+                            <h4 class="font-bold mb-3 text-indigo-600 dark:text-indigo-400 uppercase tracking-widest text-[10px]">Dashboard</h4>
+                            <ul class="space-y-1 text-slate-600 dark:text-slate-400">
                                 <li>dashboard/index.html</li>
                                 <li>dashboard/analytics.html</li>
                                 <li>dashboard/lab.html</li>
@@ -238,8 +258,8 @@ window.dispatchEvent(new CustomEvent('saasify:open-notifications'));</code></pre
                             </ul>
                         </div>
                         <div>
-                            <h4 class="font-bold mb-3 text-indigo-400 uppercase tracking-widest text-[10px]">Auth & Utility</h4>
-                            <ul class="space-y-1 text-slate-500">
+                            <h4 class="font-bold mb-3 text-indigo-600 dark:text-indigo-400 uppercase tracking-widest text-[10px]">Auth & Utility</h4>
+                            <ul class="space-y-1 text-slate-600 dark:text-slate-400">
                                 <li>login.html</li>
                                 <li>register.html</li>
                                 <li>forgot-password.html</li>
@@ -251,17 +271,17 @@ window.dispatchEvent(new CustomEvent('saasify:open-notifications'));</code></pre
                 </section>
 
                 <!-- Architecture -->
-                <section id="architecture" class="pt-8 border-t border-white/5">
-                    <h2 class="text-3xl font-bold dark:text-white mb-6">Technical Architecture</h2>
+                <section id="architecture" class="pt-8 border-t border-slate-200 dark:border-white/5">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6">Technical Architecture</h2>
                     <div class="space-y-6">
                         <div>
-                            <h3 class="text-xl font-bold dark:text-white mb-2">Deterministic Path Resolution</h3>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Deterministic Path Resolution</h3>
                             <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
                                 The template features a unique <code>ComponentLoader</code> that automatically detects its location relative to the project root. This allows you to host the template in subdirectories (like XAMPP's <code>htdocs/project/</code>) or at the root domain without manual path changes.
                             </p>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold dark:text-white mb-2">Global Event Bus</h3>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Global Event Bus</h3>
                             <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
                                 Inter-component communication is handled via <code>src/core/events.js</code>. This allows components to trigger drawers, notifications, or theme changes without being direct children of each other.
                             </p>
@@ -299,7 +319,37 @@ window.dispatchEvent(new CustomEvent('saasify:open-notifications'));</code></pre
                 a.addEventListener('click', () => {
                     if (window.innerWidth < 768) toggle(false);
                 });
-            });
+            // Theme Toggle Logic
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            const sunIcon = document.getElementById('icon-sun');
+            const moonIcon = document.getElementById('icon-moon');
+            const sunMobile = document.querySelector('.sun-mobile');
+            const moonMobile = document.querySelector('.moon-mobile');
+
+            const syncThemeIcons = (isDark) => {
+                if (isDark) {
+                    sunIcon?.classList.remove('hidden');
+                    moonIcon?.classList.add('hidden');
+                    sunMobile?.classList.remove('hidden');
+                    moonMobile?.classList.add('hidden');
+                } else {
+                    sunIcon?.classList.add('hidden');
+                    moonIcon?.classList.remove('hidden');
+                    sunMobile?.classList.add('hidden');
+                    moonMobile?.classList.remove('hidden');
+                }
+            };
+
+            const toggleTheme = () => {
+                const isDark = document.documentElement.classList.toggle('dark');
+                localStorage.setItem('saasify-theme', isDark ? 'dark' : 'light');
+                syncThemeIcons(isDark);
+            };
+
+            syncThemeIcons(document.documentElement.classList.contains('dark'));
+            themeToggle?.addEventListener('click', toggleTheme);
+            themeToggleMobile?.addEventListener('click', toggleTheme);
         })();
     </script>
 </body>
